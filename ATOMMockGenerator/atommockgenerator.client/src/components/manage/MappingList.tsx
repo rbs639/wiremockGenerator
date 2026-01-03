@@ -10,10 +10,13 @@ import {
   faSpinner,
   faFilter,
   faSortAlphaDown,
-  faSortAlphaUp
+  faSortAlphaUp,
+  faExclamationTriangle,
+  faInfoCircle,
+  faServer
 } from '@fortawesome/free-solid-svg-icons';
 import type { WiremockMapping, User } from '../../types';
-import { mappingService } from '../../services/api';
+import { mappingService, configService } from '../../services/api';
 import { downloadFile, truncateText } from '../../utils/helpers';
 import MappingEditor from './MappingEditor';
 
@@ -30,12 +33,14 @@ const MappingList: React.FC<MappingListProps> = ({ currentUser }) => {
   const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('asc');
   const [filterMethod, setFilterMethod] = useState<string>('all');
   const [filterStatus, setFilterStatus] = useState<string>('all');
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false); // Changed to false by default
   const [editingMapping, setEditingMapping] = useState<WiremockMapping | null>(null);
   const [showEditor, setShowEditor] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    loadMappings();
+    // Don't auto-load mappings on component mount since the endpoint doesn't exist
+    // loadMappings();
   }, []);
 
   useEffect(() => {
@@ -45,11 +50,15 @@ const MappingList: React.FC<MappingListProps> = ({ currentUser }) => {
   const loadMappings = async () => {
     try {
       setIsLoading(true);
+      setError(null);
       const data = await mappingService.getAllMappings();
       setMappings(data);
-    } catch (error) {
+    } catch (error: any) {
       console.error('Failed to load mappings:', error);
-      alert('Failed to load mappings');
+      setError(error.response?.status === 404 ? 
+        'Local mapping storage is not available. Use the Upload tab to deploy directly to Wiremock.' :
+        'Failed to load mappings. Please check your connection.');
+      setMappings([]);
     } finally {
       setIsLoading(false);
     }
@@ -187,6 +196,85 @@ const MappingList: React.FC<MappingListProps> = ({ currentUser }) => {
       <div className="flex items-center justify-center py-12">
         <FontAwesomeIcon icon={faSpinner} className="animate-spin h-8 w-8 text-blue-600" />
         <span className="ml-3 text-lg text-gray-600">Loading mappings...</span>
+      </div>
+    );
+  }
+
+  // Show info message instead of trying to load from non-existent endpoint
+  if (mappings.length === 0 && !error) {
+    return (
+      <div className="space-y-6">
+        {/* Info Card */}
+        <div className="card">
+          <div className="text-center py-8">
+            <FontAwesomeIcon icon={faInfoCircle} className="h-12 w-12 text-blue-500 mb-4" />
+            <h3 className="text-lg font-medium text-gray-900 mb-2">Direct Wiremock Integration</h3>
+            <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+              This ATOM Mock Generator now deploys directly to Wiremock instances. 
+              Use the <strong>Upload</strong> tab to validate and deploy your configurations directly to your Wiremock server.
+            </p>
+            
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6 text-left max-w-2xl mx-auto">
+              <h4 className="font-medium text-blue-900 mb-2">
+                <FontAwesomeIcon icon={faServer} className="mr-2" />
+                How it works:
+              </h4>
+              <ul className="text-sm text-blue-800 space-y-1">
+                <li>• Upload your ATOM config file</li>
+                <li>• Configure your Wiremock server URL and authentication</li>
+                <li>• Click "Deploy to Wiremock" to create all mappings instantly</li>
+                <li>• Mappings are created directly in your Wiremock instance</li>
+              </ul>
+            </div>
+
+            <button
+              onClick={loadMappings}
+              className="btn-primary mr-4"
+            >
+              Try Loading Local Mappings
+            </button>
+            
+            <span className="text-sm text-gray-500">
+              (This will attempt to load any locally stored mappings, but the main workflow is direct deployment)
+            </span>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="space-y-6">
+        <div className="card">
+          <div className="text-center py-8">
+            <FontAwesomeIcon icon={faExclamationTriangle} className="h-12 w-12 text-yellow-500 mb-4" />
+            <h3 className="text-lg font-medium text-gray-900 mb-2">Unable to Load Mappings</h3>
+            <p className="text-gray-600 mb-4">{error}</p>
+            
+            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6 text-left max-w-2xl mx-auto">
+              <h4 className="font-medium text-yellow-900 mb-2">Recommended Workflow:</h4>
+              <p className="text-sm text-yellow-800">
+                Use the <strong>Upload</strong> tab to deploy configurations directly to your Wiremock server. 
+                This provides immediate deployment without requiring local storage.
+              </p>
+            </div>
+
+            <button
+              onClick={() => setError(null)}
+              className="btn-secondary mr-4"
+            >
+              Dismiss
+            </button>
+            
+            <button
+              onClick={loadMappings}
+              className="btn-primary"
+            >
+              Retry Loading
+            </button>
+          </div>
+        </div>
       </div>
     );
   }

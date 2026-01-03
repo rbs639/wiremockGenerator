@@ -9,6 +9,12 @@ builder.Services.AddControllers();
 builder.Services.AddScoped<IConfigValidationService, ConfigValidationService>();
 builder.Services.AddSingleton<IMappingService, MappingService>();
 
+// Register HttpClient and WiremockAdminService
+builder.Services.AddHttpClient<IWiremockAdminService, WiremockAdminService>(client =>
+{
+    client.Timeout = TimeSpan.FromSeconds(30);
+});
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

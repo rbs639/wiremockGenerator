@@ -1,90 +1,102 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\ATOMMockGenerator\\",
+  "WorkspaceRootPath": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\ATOMMockGenerator\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FB9CCDEB-0735-42E6-92E7-9F84D3DC4E6D}|ATOMMockGenerator.Server\\ATOMMockGenerator.Server.csproj|c:\\users\\raghavendrasiddaling\\source\\mockgenerator\\atommockgenerator\\atommockgenerator.server\\controllers\\configcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{FB9CCDEB-0735-42E6-92E7-9F84D3DC4E6D}|ATOMMockGenerator.Server\\ATOMMockGenerator.Server.csproj|c:\\users\\raghavendrasiddaling\\source\\mockgenerator\\wiremockgenerator\\atommockgenerator\\atommockgenerator.server\\controllers\\configcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FB9CCDEB-0735-42E6-92E7-9F84D3DC4E6D}|ATOMMockGenerator.Server\\ATOMMockGenerator.Server.csproj|solutionrelative:atommockgenerator.server\\controllers\\configcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FB9CCDEB-0735-42E6-92E7-9F84D3DC4E6D}|ATOMMockGenerator.Server\\ATOMMockGenerator.Server.csproj|c:\\users\\raghavendrasiddaling\\source\\mockgenerator\\atommockgenerator\\atommockgenerator.server\\services\\configvalidationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{FB9CCDEB-0735-42E6-92E7-9F84D3DC4E6D}|ATOMMockGenerator.Server\\ATOMMockGenerator.Server.csproj|c:\\users\\raghavendrasiddaling\\source\\mockgenerator\\wiremockgenerator\\atommockgenerator\\atommockgenerator.server\\services\\configvalidationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FB9CCDEB-0735-42E6-92E7-9F84D3DC4E6D}|ATOMMockGenerator.Server\\ATOMMockGenerator.Server.csproj|solutionrelative:atommockgenerator.server\\services\\configvalidationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E7F64DB5-044D-6C4B-583F-98210EE7D786}|atommockgenerator.client\\atommockgenerator.client.esproj|c:\\users\\raghavendrasiddaling\\source\\mockgenerator\\atommockgenerator\\atommockgenerator.client\\.vscode\\launch.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{E7F64DB5-044D-6C4B-583F-98210EE7D786}|atommockgenerator.client\\atommockgenerator.client.esproj|c:\\users\\raghavendrasiddaling\\source\\mockgenerator\\wiremockgenerator\\atommockgenerator\\atommockgenerator.client\\.vscode\\launch.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{E7F64DB5-044D-6C4B-583F-98210EE7D786}|atommockgenerator.client\\atommockgenerator.client.esproj|solutionrelative:atommockgenerator.client\\.vscode\\launch.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E7F64DB5-044D-6C4B-583F-98210EE7D786}|atommockgenerator.client\\atommockgenerator.client.esproj|c:\\users\\raghavendrasiddaling\\source\\mockgenerator\\atommockgenerator\\atommockgenerator.client\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{E7F64DB5-044D-6C4B-583F-98210EE7D786}|atommockgenerator.client\\atommockgenerator.client.esproj|c:\\users\\raghavendrasiddaling\\source\\mockgenerator\\wiremockgenerator\\atommockgenerator\\atommockgenerator.client\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{E7F64DB5-044D-6C4B-583F-98210EE7D786}|atommockgenerator.client\\atommockgenerator.client.esproj|solutionrelative:atommockgenerator.client\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E7F64DB5-044D-6C4B-583F-98210EE7D786}|atommockgenerator.client\\atommockgenerator.client.esproj|c:\\users\\raghavendrasiddaling\\source\\mockgenerator\\atommockgenerator\\atommockgenerator.client\\src\\index.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "AbsoluteMoniker": "D:0:0:{E7F64DB5-044D-6C4B-583F-98210EE7D786}|atommockgenerator.client\\atommockgenerator.client.esproj|c:\\users\\raghavendrasiddaling\\source\\mockgenerator\\wiremockgenerator\\atommockgenerator\\atommockgenerator.client\\src\\index.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{E7F64DB5-044D-6C4B-583F-98210EE7D786}|atommockgenerator.client\\atommockgenerator.client.esproj|solutionrelative:atommockgenerator.client\\src\\index.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E7F64DB5-044D-6C4B-583F-98210EE7D786}|atommockgenerator.client\\atommockgenerator.client.esproj|c:\\users\\raghavendrasiddaling\\source\\mockgenerator\\atommockgenerator\\atommockgenerator.client\\src\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "AbsoluteMoniker": "D:0:0:{E7F64DB5-044D-6C4B-583F-98210EE7D786}|atommockgenerator.client\\atommockgenerator.client.esproj|c:\\users\\raghavendrasiddaling\\source\\mockgenerator\\wiremockgenerator\\atommockgenerator\\atommockgenerator.client\\src\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{E7F64DB5-044D-6C4B-583F-98210EE7D786}|atommockgenerator.client\\atommockgenerator.client.esproj|solutionrelative:atommockgenerator.client\\src\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E7F64DB5-044D-6C4B-583F-98210EE7D786}|atommockgenerator.client\\atommockgenerator.client.esproj|c:\\users\\raghavendrasiddaling\\source\\mockgenerator\\atommockgenerator\\atommockgenerator.client\\src\\types\\index.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}|",
+      "AbsoluteMoniker": "D:0:0:{E7F64DB5-044D-6C4B-583F-98210EE7D786}|atommockgenerator.client\\atommockgenerator.client.esproj|c:\\users\\raghavendrasiddaling\\source\\mockgenerator\\wiremockgenerator\\atommockgenerator\\atommockgenerator.client\\src\\types\\index.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}|",
       "RelativeMoniker": "D:0:0:{E7F64DB5-044D-6C4B-583F-98210EE7D786}|atommockgenerator.client\\atommockgenerator.client.esproj|solutionrelative:atommockgenerator.client\\src\\types\\index.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E7F64DB5-044D-6C4B-583F-98210EE7D786}|atommockgenerator.client\\atommockgenerator.client.esproj|c:\\users\\raghavendrasiddaling\\source\\mockgenerator\\atommockgenerator\\atommockgenerator.client\\src\\services\\api.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}|",
+      "AbsoluteMoniker": "D:0:0:{E7F64DB5-044D-6C4B-583F-98210EE7D786}|atommockgenerator.client\\atommockgenerator.client.esproj|c:\\users\\raghavendrasiddaling\\source\\mockgenerator\\wiremockgenerator\\atommockgenerator\\atommockgenerator.client\\src\\services\\api.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}|",
       "RelativeMoniker": "D:0:0:{E7F64DB5-044D-6C4B-583F-98210EE7D786}|atommockgenerator.client\\atommockgenerator.client.esproj|solutionrelative:atommockgenerator.client\\src\\services\\api.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E7F64DB5-044D-6C4B-583F-98210EE7D786}|atommockgenerator.client\\atommockgenerator.client.esproj|c:\\users\\raghavendrasiddaling\\source\\mockgenerator\\atommockgenerator\\atommockgenerator.client\\src\\utils\\helpers.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}|",
+      "AbsoluteMoniker": "D:0:0:{E7F64DB5-044D-6C4B-583F-98210EE7D786}|atommockgenerator.client\\atommockgenerator.client.esproj|c:\\users\\raghavendrasiddaling\\source\\mockgenerator\\wiremockgenerator\\atommockgenerator\\atommockgenerator.client\\src\\utils\\helpers.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}|",
       "RelativeMoniker": "D:0:0:{E7F64DB5-044D-6C4B-583F-98210EE7D786}|atommockgenerator.client\\atommockgenerator.client.esproj|solutionrelative:atommockgenerator.client\\src\\utils\\helpers.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E7F64DB5-044D-6C4B-583F-98210EE7D786}|atommockgenerator.client\\atommockgenerator.client.esproj|c:\\users\\raghavendrasiddaling\\source\\mockgenerator\\atommockgenerator\\atommockgenerator.client\\src\\components\\layout.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}|",
+      "AbsoluteMoniker": "D:0:0:{E7F64DB5-044D-6C4B-583F-98210EE7D786}|atommockgenerator.client\\atommockgenerator.client.esproj|c:\\users\\raghavendrasiddaling\\source\\mockgenerator\\wiremockgenerator\\atommockgenerator\\atommockgenerator.client\\src\\components\\layout.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}|",
       "RelativeMoniker": "D:0:0:{E7F64DB5-044D-6C4B-583F-98210EE7D786}|atommockgenerator.client\\atommockgenerator.client.esproj|solutionrelative:atommockgenerator.client\\src\\components\\layout.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E7F64DB5-044D-6C4B-583F-98210EE7D786}|atommockgenerator.client\\atommockgenerator.client.esproj|c:\\users\\raghavendrasiddaling\\source\\mockgenerator\\atommockgenerator\\atommockgenerator.client\\src\\components\\upload\\fileupload.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}|",
+      "AbsoluteMoniker": "D:0:0:{E7F64DB5-044D-6C4B-583F-98210EE7D786}|atommockgenerator.client\\atommockgenerator.client.esproj|c:\\users\\raghavendrasiddaling\\source\\mockgenerator\\wiremockgenerator\\atommockgenerator\\atommockgenerator.client\\src\\components\\upload\\fileupload.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}|",
       "RelativeMoniker": "D:0:0:{E7F64DB5-044D-6C4B-583F-98210EE7D786}|atommockgenerator.client\\atommockgenerator.client.esproj|solutionrelative:atommockgenerator.client\\src\\components\\upload\\fileupload.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E7F64DB5-044D-6C4B-583F-98210EE7D786}|atommockgenerator.client\\atommockgenerator.client.esproj|c:\\users\\raghavendrasiddaling\\source\\mockgenerator\\atommockgenerator\\atommockgenerator.client\\src\\components\\manage\\mappinglist.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}|",
+      "AbsoluteMoniker": "D:0:0:{E7F64DB5-044D-6C4B-583F-98210EE7D786}|atommockgenerator.client\\atommockgenerator.client.esproj|c:\\users\\raghavendrasiddaling\\source\\mockgenerator\\wiremockgenerator\\atommockgenerator\\atommockgenerator.client\\src\\components\\manage\\mappinglist.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}|",
       "RelativeMoniker": "D:0:0:{E7F64DB5-044D-6C4B-583F-98210EE7D786}|atommockgenerator.client\\atommockgenerator.client.esproj|solutionrelative:atommockgenerator.client\\src\\components\\manage\\mappinglist.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E7F64DB5-044D-6C4B-583F-98210EE7D786}|atommockgenerator.client\\atommockgenerator.client.esproj|c:\\users\\raghavendrasiddaling\\source\\mockgenerator\\atommockgenerator\\atommockgenerator.client\\src\\components\\manage\\mappingeditor.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}|",
+      "AbsoluteMoniker": "D:0:0:{E7F64DB5-044D-6C4B-583F-98210EE7D786}|atommockgenerator.client\\atommockgenerator.client.esproj|c:\\users\\raghavendrasiddaling\\source\\mockgenerator\\wiremockgenerator\\atommockgenerator\\atommockgenerator.client\\src\\components\\manage\\mappingeditor.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}|",
       "RelativeMoniker": "D:0:0:{E7F64DB5-044D-6C4B-583F-98210EE7D786}|atommockgenerator.client\\atommockgenerator.client.esproj|solutionrelative:atommockgenerator.client\\src\\components\\manage\\mappingeditor.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E7F64DB5-044D-6C4B-583F-98210EE7D786}|atommockgenerator.client\\atommockgenerator.client.esproj|c:\\users\\raghavendrasiddaling\\source\\mockgenerator\\atommockgenerator\\atommockgenerator.client\\src\\app.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "AbsoluteMoniker": "D:0:0:{E7F64DB5-044D-6C4B-583F-98210EE7D786}|atommockgenerator.client\\atommockgenerator.client.esproj|c:\\users\\raghavendrasiddaling\\source\\mockgenerator\\wiremockgenerator\\atommockgenerator\\atommockgenerator.client\\src\\app.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
       "RelativeMoniker": "D:0:0:{E7F64DB5-044D-6C4B-583F-98210EE7D786}|atommockgenerator.client\\atommockgenerator.client.esproj|solutionrelative:atommockgenerator.client\\src\\app.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FB9CCDEB-0735-42E6-92E7-9F84D3DC4E6D}|ATOMMockGenerator.Server\\ATOMMockGenerator.Server.csproj|c:\\users\\raghavendrasiddaling\\source\\mockgenerator\\atommockgenerator\\atommockgenerator.server\\services\\mappingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{FB9CCDEB-0735-42E6-92E7-9F84D3DC4E6D}|ATOMMockGenerator.Server\\ATOMMockGenerator.Server.csproj|c:\\users\\raghavendrasiddaling\\source\\mockgenerator\\wiremockgenerator\\atommockgenerator\\atommockgenerator.server\\services\\mappingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FB9CCDEB-0735-42E6-92E7-9F84D3DC4E6D}|ATOMMockGenerator.Server\\ATOMMockGenerator.Server.csproj|solutionrelative:atommockgenerator.server\\services\\mappingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FB9CCDEB-0735-42E6-92E7-9F84D3DC4E6D}|ATOMMockGenerator.Server\\ATOMMockGenerator.Server.csproj|c:\\users\\raghavendrasiddaling\\source\\mockgenerator\\atommockgenerator\\atommockgenerator.server\\controllers\\mappingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{FB9CCDEB-0735-42E6-92E7-9F84D3DC4E6D}|ATOMMockGenerator.Server\\ATOMMockGenerator.Server.csproj|c:\\users\\raghavendrasiddaling\\source\\mockgenerator\\wiremockgenerator\\atommockgenerator\\atommockgenerator.server\\controllers\\mappingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FB9CCDEB-0735-42E6-92E7-9F84D3DC4E6D}|ATOMMockGenerator.Server\\ATOMMockGenerator.Server.csproj|solutionrelative:atommockgenerator.server\\controllers\\mappingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FB9CCDEB-0735-42E6-92E7-9F84D3DC4E6D}|ATOMMockGenerator.Server\\ATOMMockGenerator.Server.csproj|c:\\users\\raghavendrasiddaling\\source\\mockgenerator\\atommockgenerator\\atommockgenerator.server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{FB9CCDEB-0735-42E6-92E7-9F84D3DC4E6D}|ATOMMockGenerator.Server\\ATOMMockGenerator.Server.csproj|c:\\users\\raghavendrasiddaling\\source\\mockgenerator\\wiremockgenerator\\atommockgenerator\\atommockgenerator.server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FB9CCDEB-0735-42E6-92E7-9F84D3DC4E6D}|ATOMMockGenerator.Server\\ATOMMockGenerator.Server.csproj|solutionrelative:atommockgenerator.server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E7F64DB5-044D-6C4B-583F-98210EE7D786}|atommockgenerator.client\\atommockgenerator.client.esproj|c:\\users\\raghavendrasiddaling\\source\\mockgenerator\\atommockgenerator\\atommockgenerator.client\\src\\services\\validation.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}|",
+      "AbsoluteMoniker": "D:0:0:{E7F64DB5-044D-6C4B-583F-98210EE7D786}|atommockgenerator.client\\atommockgenerator.client.esproj|c:\\users\\raghavendrasiddaling\\source\\mockgenerator\\wiremockgenerator\\atommockgenerator\\atommockgenerator.client\\src\\services\\validation.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}|",
       "RelativeMoniker": "D:0:0:{E7F64DB5-044D-6C4B-583F-98210EE7D786}|atommockgenerator.client\\atommockgenerator.client.esproj|solutionrelative:atommockgenerator.client\\src\\services\\validation.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E7F64DB5-044D-6C4B-583F-98210EE7D786}|atommockgenerator.client\\atommockgenerator.client.esproj|c:\\users\\raghavendrasiddaling\\source\\mockgenerator\\atommockgenerator\\atommockgenerator.client\\tsconfig.app.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{E7F64DB5-044D-6C4B-583F-98210EE7D786}|atommockgenerator.client\\atommockgenerator.client.esproj|c:\\users\\raghavendrasiddaling\\source\\mockgenerator\\wiremockgenerator\\atommockgenerator\\atommockgenerator.client\\tsconfig.app.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{E7F64DB5-044D-6C4B-583F-98210EE7D786}|atommockgenerator.client\\atommockgenerator.client.esproj|solutionrelative:atommockgenerator.client\\tsconfig.app.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E7F64DB5-044D-6C4B-583F-98210EE7D786}|atommockgenerator.client\\atommockgenerator.client.esproj|c:\\users\\raghavendrasiddaling\\source\\mockgenerator\\atommockgenerator\\atommockgenerator.client\\public\\atom-config-template.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{E7F64DB5-044D-6C4B-583F-98210EE7D786}|atommockgenerator.client\\atommockgenerator.client.esproj|c:\\users\\raghavendrasiddaling\\source\\mockgenerator\\wiremockgenerator\\atommockgenerator\\atommockgenerator.client\\public\\atom-config-template.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{E7F64DB5-044D-6C4B-583F-98210EE7D786}|atommockgenerator.client\\atommockgenerator.client.esproj|solutionrelative:atommockgenerator.client\\public\\atom-config-template.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E7F64DB5-044D-6C4B-583F-98210EE7D786}|atommockgenerator.client\\atommockgenerator.client.esproj|c:\\users\\raghavendrasiddaling\\source\\mockgenerator\\atommockgenerator\\atommockgenerator.client\\vite.config.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "AbsoluteMoniker": "D:0:0:{E7F64DB5-044D-6C4B-583F-98210EE7D786}|atommockgenerator.client\\atommockgenerator.client.esproj|c:\\users\\raghavendrasiddaling\\source\\mockgenerator\\wiremockgenerator\\atommockgenerator\\atommockgenerator.client\\vite.config.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
       "RelativeMoniker": "D:0:0:{E7F64DB5-044D-6C4B-583F-98210EE7D786}|atommockgenerator.client\\atommockgenerator.client.esproj|solutionrelative:atommockgenerator.client\\vite.config.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB9CCDEB-0735-42E6-92E7-9F84D3DC4E6D}|ATOMMockGenerator.Server\\ATOMMockGenerator.Server.csproj|c:\\users\\raghavendrasiddaling\\source\\mockgenerator\\wiremockgenerator\\atommockgenerator\\atommockgenerator.server\\models\\wiremockmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FB9CCDEB-0735-42E6-92E7-9F84D3DC4E6D}|ATOMMockGenerator.Server\\ATOMMockGenerator.Server.csproj|solutionrelative:atommockgenerator.server\\models\\wiremockmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB9CCDEB-0735-42E6-92E7-9F84D3DC4E6D}|ATOMMockGenerator.Server\\ATOMMockGenerator.Server.csproj|c:\\users\\raghavendrasiddaling\\source\\mockgenerator\\wiremockgenerator\\atommockgenerator\\atommockgenerator.server\\implementation_summary.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}|",
+      "RelativeMoniker": "D:0:0:{FB9CCDEB-0735-42E6-92E7-9F84D3DC4E6D}|ATOMMockGenerator.Server\\ATOMMockGenerator.Server.csproj|solutionrelative:atommockgenerator.server\\implementation_summary.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\ATOMMockGenerator\\test-atom-config.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:test-atom-config.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -94,7 +106,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 14,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -110,104 +122,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "launch.json",
-              "DocumentMoniker": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\.vscode\\launch.json",
-              "RelativeDocumentMoniker": "atommockgenerator.client\\.vscode\\launch.json",
-              "ToolTip": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\.vscode\\launch.json",
-              "RelativeToolTip": "atommockgenerator.client\\.vscode\\launch.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAjAAAAAAAAAA==",
+              "DocumentIndex": 23,
+              "Title": "test-atom-config.json",
+              "DocumentMoniker": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\ATOMMockGenerator\\test-atom-config.json",
+              "RelativeDocumentMoniker": "test-atom-config.json",
+              "ToolTip": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\ATOMMockGenerator\\test-atom-config.json",
+              "RelativeToolTip": "test-atom-config.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-01-02T23:09:53.543Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "index.html",
-              "DocumentMoniker": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\index.html",
-              "RelativeDocumentMoniker": "atommockgenerator.client\\index.html",
-              "ToolTip": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\index.html",
-              "RelativeToolTip": "atommockgenerator.client\\index.html",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAswA0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2026-01-02T07:27:15.661Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "tsconfig.app.json",
-              "DocumentMoniker": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\tsconfig.app.json",
-              "RelativeDocumentMoniker": "atommockgenerator.client\\tsconfig.app.json",
-              "ToolTip": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\tsconfig.app.json",
-              "RelativeToolTip": "atommockgenerator.client\\tsconfig.app.json",
-              "ViewState": "AgIAABkAAAAAAAAAAEBVwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-01-02T07:57:57.306Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "validation.ts",
-              "DocumentMoniker": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\src\\services\\validation.ts",
-              "RelativeDocumentMoniker": "atommockgenerator.client\\src\\services\\validation.ts",
-              "ToolTip": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\src\\services\\validation.ts",
-              "RelativeToolTip": "atommockgenerator.client\\src\\services\\validation.ts",
-              "ViewState": "AgIAAGYBAAAAAAAAAIBJwGgBAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2026-01-02T07:56:19.548Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "App.tsx",
-              "DocumentMoniker": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\src\\App.tsx",
-              "RelativeDocumentMoniker": "atommockgenerator.client\\src\\App.tsx",
-              "ToolTip": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\src\\App.tsx",
-              "RelativeToolTip": "atommockgenerator.client\\src\\App.tsx",
-              "ViewState": "AgIAADsAAAAAAAAAAIBJwD0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2026-01-02T01:18:59.504Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "MappingEditor.tsx",
-              "DocumentMoniker": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\src\\components\\manage\\MappingEditor.tsx",
-              "RelativeDocumentMoniker": "atommockgenerator.client\\src\\components\\manage\\MappingEditor.tsx",
-              "ToolTip": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\src\\components\\manage\\MappingEditor.tsx",
-              "RelativeToolTip": "atommockgenerator.client\\src\\components\\manage\\MappingEditor.tsx",
-              "ViewState": "AgIAAOUAAAAAAAAAAABBwOYAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2026-01-02T01:18:50.862Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "MappingList.tsx",
-              "DocumentMoniker": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\src\\components\\manage\\MappingList.tsx",
-              "RelativeDocumentMoniker": "atommockgenerator.client\\src\\components\\manage\\MappingList.tsx",
-              "ToolTip": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\src\\components\\manage\\MappingList.tsx",
-              "RelativeToolTip": "atommockgenerator.client\\src\\components\\manage\\MappingList.tsx",
-              "ViewState": "AgIAAMEBAAAAAAAAAABBwMIBAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2026-01-02T01:18:28.167Z",
+              "WhenOpened": "2026-01-03T09:54:29.512Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 10,
               "Title": "FileUpload.tsx",
-              "DocumentMoniker": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\src\\components\\upload\\FileUpload.tsx",
+              "DocumentMoniker": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\src\\components\\upload\\FileUpload.tsx",
               "RelativeDocumentMoniker": "atommockgenerator.client\\src\\components\\upload\\FileUpload.tsx",
-              "ToolTip": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\src\\components\\upload\\FileUpload.tsx",
+              "ToolTip": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\src\\components\\upload\\FileUpload.tsx",
               "RelativeToolTip": "atommockgenerator.client\\src\\components\\upload\\FileUpload.tsx",
-              "ViewState": "AgIAAJIBAAAAAAAAAIBJwJQBAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAAEoCAAAAAAAAAIBJwEwCAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
               "WhenOpened": "2026-01-02T01:17:49.647Z",
               "EditorCaption": ""
@@ -216,50 +150,23 @@
               "$type": "Document",
               "DocumentIndex": 9,
               "Title": "Layout.tsx",
-              "DocumentMoniker": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\src\\components\\Layout.tsx",
+              "DocumentMoniker": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\src\\components\\Layout.tsx",
               "RelativeDocumentMoniker": "atommockgenerator.client\\src\\components\\Layout.tsx",
-              "ToolTip": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\src\\components\\Layout.tsx",
+              "ToolTip": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\src\\components\\Layout.tsx",
               "RelativeToolTip": "atommockgenerator.client\\src\\components\\Layout.tsx",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAEQAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2026-01-02T01:17:25.66Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "helpers.ts",
-              "DocumentMoniker": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\src\\utils\\helpers.ts",
-              "RelativeDocumentMoniker": "atommockgenerator.client\\src\\utils\\helpers.ts",
-              "ToolTip": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\src\\utils\\helpers.ts",
-              "RelativeToolTip": "atommockgenerator.client\\src\\utils\\helpers.ts",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2026-01-02T01:17:15.031Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "api.ts",
-              "DocumentMoniker": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\src\\services\\api.ts",
-              "RelativeDocumentMoniker": "atommockgenerator.client\\src\\services\\api.ts",
-              "ToolTip": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\src\\services\\api.ts",
-              "RelativeToolTip": "atommockgenerator.client\\src\\services\\api.ts",
-              "ViewState": "AgIAAD8AAAAAAAAAAIBJwEEAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2026-01-02T01:17:09.142Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-02T01:17:25.66Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "ConfigController.cs",
-              "DocumentMoniker": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\ATOMMockGenerator\\ATOMMockGenerator.Server\\Controllers\\ConfigController.cs",
+              "DocumentMoniker": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\ATOMMockGenerator\\ATOMMockGenerator.Server\\Controllers\\ConfigController.cs",
               "RelativeDocumentMoniker": "ATOMMockGenerator.Server\\Controllers\\ConfigController.cs",
-              "ToolTip": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\ATOMMockGenerator\\ATOMMockGenerator.Server\\Controllers\\ConfigController.cs",
+              "ToolTip": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\ATOMMockGenerator\\ATOMMockGenerator.Server\\Controllers\\ConfigController.cs",
               "RelativeToolTip": "ATOMMockGenerator.Server\\Controllers\\ConfigController.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAUwBQAAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAABMAAAAAAAAAAAD4vxkAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-02T01:19:46.785Z",
               "EditorCaption": ""
@@ -268,102 +175,232 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "ConfigValidationService.cs",
-              "DocumentMoniker": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\ATOMMockGenerator\\ATOMMockGenerator.Server\\Services\\ConfigValidationService.cs",
+              "DocumentMoniker": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\ATOMMockGenerator\\ATOMMockGenerator.Server\\Services\\ConfigValidationService.cs",
               "RelativeDocumentMoniker": "ATOMMockGenerator.Server\\Services\\ConfigValidationService.cs",
-              "ToolTip": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\ATOMMockGenerator\\ATOMMockGenerator.Server\\Services\\ConfigValidationService.cs",
+              "ToolTip": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\ATOMMockGenerator\\ATOMMockGenerator.Server\\Services\\ConfigValidationService.cs",
               "RelativeToolTip": "ATOMMockGenerator.Server\\Services\\ConfigValidationService.cs",
-              "ViewState": "AgIAAHEBAAAAAAAAAAAqwIIBAAAUAAAAAAAAAA==",
+              "ViewState": "AgIAAHoBAAAAAAAAAAAMwIIBAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-02T08:04:27.036Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "WiremockModels.cs",
+              "DocumentMoniker": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\ATOMMockGenerator\\ATOMMockGenerator.Server\\Models\\WiremockModels.cs",
+              "RelativeDocumentMoniker": "ATOMMockGenerator.Server\\Models\\WiremockModels.cs",
+              "ToolTip": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\ATOMMockGenerator\\ATOMMockGenerator.Server\\Models\\WiremockModels.cs",
+              "RelativeToolTip": "ATOMMockGenerator.Server\\Models\\WiremockModels.cs",
+              "ViewState": "AgIAAK8AAAAAAAAAAIBYwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-03T09:37:28.746Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "IMPLEMENTATION_SUMMARY.md",
+              "DocumentMoniker": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\ATOMMockGenerator\\ATOMMockGenerator.Server\\IMPLEMENTATION_SUMMARY.md",
+              "RelativeDocumentMoniker": "ATOMMockGenerator.Server\\IMPLEMENTATION_SUMMARY.md",
+              "ToolTip": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\ATOMMockGenerator\\ATOMMockGenerator.Server\\IMPLEMENTATION_SUMMARY.md",
+              "RelativeToolTip": "ATOMMockGenerator.Server\\IMPLEMENTATION_SUMMARY.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAI8AAAB6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2026-01-03T09:40:01.832Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "MappingList.tsx",
+              "DocumentMoniker": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\src\\components\\manage\\MappingList.tsx",
+              "RelativeDocumentMoniker": "atommockgenerator.client\\src\\components\\manage\\MappingList.tsx",
+              "ToolTip": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\src\\components\\manage\\MappingList.tsx",
+              "RelativeToolTip": "atommockgenerator.client\\src\\components\\manage\\MappingList.tsx",
+              "ViewState": "AgIAABgCAAAAAAAAAIBJwBoCAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2026-01-02T01:18:28.167Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "MappingEditor.tsx",
+              "DocumentMoniker": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\src\\components\\manage\\MappingEditor.tsx",
+              "RelativeDocumentMoniker": "atommockgenerator.client\\src\\components\\manage\\MappingEditor.tsx",
+              "ToolTip": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\src\\components\\manage\\MappingEditor.tsx",
+              "RelativeToolTip": "atommockgenerator.client\\src\\components\\manage\\MappingEditor.tsx",
+              "ViewState": "AgIAAOUAAAAAAAAAAABBwOYAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2026-01-02T01:18:50.862Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "App.tsx",
+              "DocumentMoniker": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\src\\App.tsx",
+              "RelativeDocumentMoniker": "atommockgenerator.client\\src\\App.tsx",
+              "ToolTip": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\src\\App.tsx",
+              "RelativeToolTip": "atommockgenerator.client\\src\\App.tsx",
+              "ViewState": "AgIAADsAAAAAAAAAAIBJwD0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2026-01-02T01:18:59.504Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "validation.ts",
+              "DocumentMoniker": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\src\\services\\validation.ts",
+              "RelativeDocumentMoniker": "atommockgenerator.client\\src\\services\\validation.ts",
+              "ToolTip": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\src\\services\\validation.ts",
+              "RelativeToolTip": "atommockgenerator.client\\src\\services\\validation.ts",
+              "ViewState": "AgIAAGYBAAAAAAAAAIBJwGgBAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2026-01-02T07:56:19.548Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "tsconfig.app.json",
+              "DocumentMoniker": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\tsconfig.app.json",
+              "RelativeDocumentMoniker": "atommockgenerator.client\\tsconfig.app.json",
+              "ToolTip": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\tsconfig.app.json",
+              "RelativeToolTip": "atommockgenerator.client\\tsconfig.app.json",
+              "ViewState": "AgIAABkAAAAAAAAAAEBVwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-01-02T07:57:57.306Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "index.html",
+              "DocumentMoniker": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\index.html",
+              "RelativeDocumentMoniker": "atommockgenerator.client\\index.html",
+              "ToolTip": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\index.html",
+              "RelativeToolTip": "atommockgenerator.client\\index.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAswA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2026-01-02T07:27:15.661Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "launch.json",
+              "DocumentMoniker": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\.vscode\\launch.json",
+              "RelativeDocumentMoniker": "atommockgenerator.client\\.vscode\\launch.json",
+              "ToolTip": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\.vscode\\launch.json",
+              "RelativeToolTip": "atommockgenerator.client\\.vscode\\launch.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-01-02T23:09:53.543Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "helpers.ts",
+              "DocumentMoniker": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\src\\utils\\helpers.ts",
+              "RelativeDocumentMoniker": "atommockgenerator.client\\src\\utils\\helpers.ts",
+              "ToolTip": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\src\\utils\\helpers.ts",
+              "RelativeToolTip": "atommockgenerator.client\\src\\utils\\helpers.ts",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2026-01-02T01:17:15.031Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "api.ts",
+              "DocumentMoniker": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\src\\services\\api.ts",
+              "RelativeDocumentMoniker": "atommockgenerator.client\\src\\services\\api.ts",
+              "ToolTip": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\src\\services\\api.ts",
+              "RelativeToolTip": "atommockgenerator.client\\src\\services\\api.ts",
+              "ViewState": "AgIAAIwAAAAAAAAAAIBJwI4AAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2026-01-02T01:17:09.142Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 19,
               "Title": "atom-config-template.json",
-              "DocumentMoniker": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\public\\atom-config-template.json",
+              "DocumentMoniker": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\public\\atom-config-template.json",
               "RelativeDocumentMoniker": "atommockgenerator.client\\public\\atom-config-template.json",
-              "ToolTip": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\public\\atom-config-template.json",
+              "ToolTip": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\public\\atom-config-template.json",
               "RelativeToolTip": "atommockgenerator.client\\public\\atom-config-template.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAFcAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-01-02T08:00:42.343Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-02T08:00:42.343Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 20,
               "Title": "vite.config.ts",
-              "DocumentMoniker": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\vite.config.ts",
+              "DocumentMoniker": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\vite.config.ts",
               "RelativeDocumentMoniker": "atommockgenerator.client\\vite.config.ts",
-              "ToolTip": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\vite.config.ts",
+              "ToolTip": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\vite.config.ts",
               "RelativeToolTip": "atommockgenerator.client\\vite.config.ts",
               "ViewState": "AgIAAA4AAAAAAAAAAIBJwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2026-01-02T22:59:25.08Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-02T22:59:25.08Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
               "Title": "index.ts",
-              "DocumentMoniker": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\src\\types\\index.ts",
+              "DocumentMoniker": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\src\\types\\index.ts",
               "RelativeDocumentMoniker": "atommockgenerator.client\\src\\types\\index.ts",
-              "ToolTip": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\src\\types\\index.ts",
+              "ToolTip": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\src\\types\\index.ts",
               "RelativeToolTip": "atommockgenerator.client\\src\\types\\index.ts",
               "ViewState": "AgIAAIMAAAAAAAAAAIBJwIUAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2026-01-02T01:17:02.022Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-02T01:17:02.022Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
               "Title": "App.css",
-              "DocumentMoniker": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\src\\App.css",
+              "DocumentMoniker": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\src\\App.css",
               "RelativeDocumentMoniker": "atommockgenerator.client\\src\\App.css",
-              "ToolTip": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\src\\App.css",
+              "ToolTip": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\src\\App.css",
               "RelativeToolTip": "atommockgenerator.client\\src\\App.css",
               "ViewState": "AgIAAFcAAAAAAAAAAIBJwFkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2026-01-02T01:16:53.909Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-02T01:16:53.909Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 14,
               "Title": "MappingService.cs",
-              "DocumentMoniker": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\ATOMMockGenerator\\ATOMMockGenerator.Server\\Services\\MappingService.cs",
+              "DocumentMoniker": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\ATOMMockGenerator\\ATOMMockGenerator.Server\\Services\\MappingService.cs",
               "RelativeDocumentMoniker": "ATOMMockGenerator.Server\\Services\\MappingService.cs",
-              "ToolTip": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\ATOMMockGenerator\\ATOMMockGenerator.Server\\Services\\MappingService.cs",
+              "ToolTip": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\ATOMMockGenerator\\ATOMMockGenerator.Server\\Services\\MappingService.cs",
               "RelativeToolTip": "ATOMMockGenerator.Server\\Services\\MappingService.cs",
               "ViewState": "AgIAAP4AAAAAAAAAAABRwAEBAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-02T01:19:34.171Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-02T01:19:34.171Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
               "Title": "index.css",
-              "DocumentMoniker": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\src\\index.css",
+              "DocumentMoniker": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\src\\index.css",
               "RelativeDocumentMoniker": "atommockgenerator.client\\src\\index.css",
-              "ToolTip": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\src\\index.css",
+              "ToolTip": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\ATOMMockGenerator\\atommockgenerator.client\\src\\index.css",
               "RelativeToolTip": "atommockgenerator.client\\src\\index.css",
               "ViewState": "AgIAAA4BAAAAAAAAAIBJwAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2026-01-02T01:16:39.651Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-02T01:16:39.651Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 16,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\ATOMMockGenerator\\ATOMMockGenerator.Server\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\ATOMMockGenerator\\ATOMMockGenerator.Server\\Program.cs",
               "RelativeDocumentMoniker": "ATOMMockGenerator.Server\\Program.cs",
-              "ToolTip": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\ATOMMockGenerator\\ATOMMockGenerator.Server\\Program.cs",
+              "ToolTip": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\ATOMMockGenerator\\ATOMMockGenerator.Server\\Program.cs",
               "RelativeToolTip": "ATOMMockGenerator.Server\\Program.cs",
-              "ViewState": "AgIAAC4AAAAAAAAAAIBJwAEAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAADMAAAAAAAAAAABRwAEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-02T01:20:06.374Z",
               "EditorCaption": ""
@@ -372,14 +409,13 @@
               "$type": "Document",
               "DocumentIndex": 15,
               "Title": "MappingsController.cs",
-              "DocumentMoniker": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\ATOMMockGenerator\\ATOMMockGenerator.Server\\Controllers\\MappingsController.cs",
+              "DocumentMoniker": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\ATOMMockGenerator\\ATOMMockGenerator.Server\\Controllers\\MappingsController.cs",
               "RelativeDocumentMoniker": "ATOMMockGenerator.Server\\Controllers\\MappingsController.cs",
-              "ToolTip": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\ATOMMockGenerator\\ATOMMockGenerator.Server\\Controllers\\MappingsController.cs",
+              "ToolTip": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\ATOMMockGenerator\\ATOMMockGenerator.Server\\Controllers\\MappingsController.cs",
               "RelativeToolTip": "ATOMMockGenerator.Server\\Controllers\\MappingsController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAHgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-02T01:19:58.722Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-02T01:19:58.722Z"
             }
           ]
         }

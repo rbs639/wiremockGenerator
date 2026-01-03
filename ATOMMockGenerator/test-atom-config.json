@@ -1,0 +1,55 @@
+{
+  "version": "1.0",
+  "target": {
+    "baseUrl": "http://localhost:8080",
+    "auth": {
+      "type": "basic",
+      "username": "admin",
+      "password": "admin123"
+    }
+  },
+  "defaults": {
+    "priority": 5,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "mocks": [
+    {
+      "name": "Get planned outages",
+      "priority": 1,
+      "request": {
+        "method": "GET",
+        "urlPattern": "/webapi/OutageListData/GetDetailedPlannedOutages.*"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "type": "inline",
+          "value": "[{\"Area\":\"Berry Park, Duckenfield, Millers Forest, Morpeth\",\"Cause\":\"Replacing or fixing powerlines above ground in your neighbourhood\",\"Detail\":\"\",\"Customers\":\"79\",\"EndDateTime\":\"2025-06-19T16:00:00\",\"StartDateTime\":\"2025-06-19T08:00:00\",\"Status\":\"Proceeding as scheduled\",\"Reason\":null,\"Streets\":\"Duckenfield Rd, Duckenfield Wharf Rd, Eales Rd, McFarlanes Rd, Raymond Terrace Rd, Wharf Rd\",\"WebId\":80450,\"JobId\":\"120938\"}]"
+        }
+      }
+    },
+    {
+      "name": "Test user endpoint",
+      "priority": 2,
+      "request": {
+        "method": "GET",
+        "urlPath": "/api/users"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "type": "inline",
+          "value": "[{\"id\": 1, \"name\": \"John Doe\"}]"
+        }
+      }
+    }
+  ]
+}

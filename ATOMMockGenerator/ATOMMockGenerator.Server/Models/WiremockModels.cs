@@ -163,4 +163,17 @@ namespace ATOMMockGenerator.Server.Models
     {
         public List<string> MappingIds { get; set; } = new();
     }
+
+    public class DeployMappingsRequest
+    {
+        public string TargetUrl { get; set; } = string.Empty;
+        public List<WiremockMapping> Mappings { get; set; } = new();
+        public AuthConfig? Auth { get; set; }
+    }
+
+    public class ResetWiremockRequest
+    {
+        public string TargetUrl { get; set; } = string.Empty;
+        public AuthConfig? Auth { get; set; }
+    }
 }

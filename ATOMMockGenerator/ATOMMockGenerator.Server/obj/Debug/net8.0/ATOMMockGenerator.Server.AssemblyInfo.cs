@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ATOMMockGenerator.Server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d5889fc3630a6daa4fe965994a0e28f3df61fc64")]
 [assembly: System.Reflection.AssemblyProductAttribute("ATOMMockGenerator.Server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ATOMMockGenerator.Server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

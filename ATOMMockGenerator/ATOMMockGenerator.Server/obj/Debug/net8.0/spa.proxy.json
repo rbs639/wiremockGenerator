@@ -3,7 +3,7 @@
 "ServerUrl": "https://localhost:53983",
 "RedirectUrl": "",
 "LaunchCommand": "npm run dev",
-"WorkingDirectory": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\ATOMMockGenerator\\ATOMMockGenerator.Server\\..\\atommockgenerator.client",
+"WorkingDirectory": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\ATOMMockGenerator\\ATOMMockGenerator.Server\\..\\atommockgenerator.client",
 "MaxTimeoutInSeconds": "120",
 "KeepRunning": "false"
 }

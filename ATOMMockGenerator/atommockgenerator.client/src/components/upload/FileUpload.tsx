@@ -9,10 +9,13 @@ import {
   faFile,
   faTrash,
   faExclamationTriangle,
-  faInfoCircle
+  faInfoCircle,
+  faRocket,
+  faCog,
+  faServer
 } from '@fortawesome/free-solid-svg-icons';
 import type { JsonConfig, ValidationResult, ATOMConfig } from '../../types/index.js';
-import { configService } from '../../services/api.js';
+import { configService, type ValidateAndDeployResponse, type DeployMappingsRequest } from '../../services/api.js';
 import { downloadFile } from '../../utils/helpers.js';
 
 interface FileUploadProps {
@@ -27,10 +30,20 @@ const FileUpload: React.FC<FileUploadProps> = ({ onConfigUploaded }) => {
   const [validationResult, setValidationResult] = useState<ValidationResult | null>(null);
   const [isValidating, setIsValidating] = useState(false);
   const [isGenerating, setIsGenerating] = useState(false);
+  const [isDeploying, setIsDeploying] = useState(false);
+  const [deploymentResult, setDeploymentResult] = useState<ValidateAndDeployResponse | null>(null);
+  const [showManualDeploy, setShowManualDeploy] = useState(false);
+  const [manualTargetUrl, setManualTargetUrl] = useState('http://localhost:8080');
+  const [manualAuth, setManualAuth] = useState({
+    type: 'basic' as const,
+    username: 'admin',
+    password: 'admin123'
+  });
 
   const handleFileSelect = (selectedFile: File) => {
     if (selectedFile && selectedFile.type === 'application/json') {
       setFile(selectedFile);
+      setDeploymentResult(null); // Clear previous deployment results
       validateFile(selectedFile);
     } else {
       alert('Please select a valid JSON file');
@@ -116,6 +129,8 @@ const FileUpload: React.FC<FileUploadProps> = ({ onConfigUploaded }) => {
     setFile(null);
     setUploadedConfig(null);
     setValidationResult(null);
+    setDeploymentResult(null);
+    setShowManualDeploy(false);
     if (fileInputRef.current) {
       fileInputRef.current.value = '';
     }
@@ -123,65 +138,88 @@ const FileUpload: React.FC<FileUploadProps> = ({ onConfigUploaded }) => {
 
   const downloadTemplate = async () => {
     try {
-      // Create a sample ATOM config based on the schema
-      const sampleConfig = {
-        version: "1.0",
-        target: {
-          baseUrl: "http://wiremock.local:8080",
-          auth: { 
-            type: "basic" as const, 
-            username: "svc", 
-            password: "*****" 
-          }
-        },
-        defaults: {
-          priority: 5,
-          headers: { "Content-Type": "application/json" },
-          templating: { enabled: false }
-        },
-        mocks: [
-          {
-            name: "Get user by id",
-            priority: 1,
-            request: {
-              method: "GET" as const,
-              urlPath: "/users/{userId}",
-              pathTemplate: "/users/{userId}",
-              queryParameters: {
-                verbose: { equalTo: "true" }
-              },
-              headers: {
-                Accept: { contains: "application/json" }
-              }
-            },
-            response: {
-              status: 200,
-              headers: { "Content-Type": "application/json" },
-              body: {
-                type: "inline" as const,
-                value: "{ \"id\": \"{{request.pathSegments.[1]}}\", \"name\": \"John\" }",
-                templating: true
-              },
-              fixedDelayMilliseconds: 100
-            },
-            scenario: {
-              name: "User lifecycle",
-              requiredState: "Started",
-              newState: "Fetched"
-            },
-            metadata: {
-              owner: "team-a",
-              jira: "ABC-123"
-            }
-          }
-        ]
-      };
-
-      const blob = new Blob([JSON.stringify(sampleConfig, null, 2)], { type: 'application/json' });
+      const blob = await configService.downloadTemplate();
       downloadFile(blob, 'atom-config-template.json');
     } catch (error) {
       console.error('Failed to download template:', error);
       alert('Failed to download template');
+    }
+  };
+
+  const validateAndDeploy = async () => {
+    if (!uploadedConfig || !validationResult?.isValid) return;
+
+    setIsDeploying(true);
+    setDeploymentResult(null);
+    
+    try {
+      const result = await configService.validateAndDeploy(uploadedConfig);
+      console.log('Deployment result:', result);
+      setDeploymentResult(result);
+      
+      if (result.success) {
+        alert(`Successfully deployed ${result.deployed?.mappingsCount || 0} mappings to ${result.deployed?.target}`);
+      }
+    } catch (error: any) {
+      console.error('Failed to validate and deploy:', error);
+      
+      // Handle case where config doesn't have target info
+      if (error.response?.data?.message?.includes('Target baseUrl is required')) {
+        setShowManualDeploy(true);
+        setDeploymentResult({
+          success: false,
+          message: 'Configuration lacks target information. Please provide Wiremock server details below.',
+          validation: validationResult
+        });
+      } else {
+        setDeploymentResult({
+          success: false,
+          message: error.response?.data?.message || error.message || 'Deployment failed',
+          validation: validationResult
+        });
+      }
+    } finally {
+      setIsDeploying(false);
+    }
+  };
+
+  const deployWithManualConfig = async () => {
+    if (!uploadedConfig || !validationResult?.isValid) return;
+
+    setIsDeploying(true);
+    
+    try {
+      // First generate mappings
+      const mappings = await configService.generateMappings(uploadedConfig);
+      
+      // Then deploy them with manual configuration
+      const deployRequest: DeployMappingsRequest = {
+        targetUrl: manualTargetUrl,
+        mappings: mappings,
+        auth: manualAuth.type === 'basic' ? {
+          type: 'basic',
+          username: manualAuth.username,
+          password: manualAuth.password
+        } : undefined
+      };
+      
+      const result = await configService.deployMappings(deployRequest);
+      console.log('Manual deployment result:', result);
+      setDeploymentResult(result);
+      
+      if (result.success) {
+        alert(`Successfully deployed ${result.deployed?.mappingsCount || 0} mappings to ${manualTargetUrl}`);
+        setShowManualDeploy(false);
+      }
+    } catch (error: any) {
+      console.error('Failed to deploy with manual config:', error);
+      setDeploymentResult({
+        success: false,
+        message: error.response?.data?.message || error.message || 'Manual deployment failed',
+        validation: validationResult
+      });
+    } finally {
+      setIsDeploying(false);
     }
   };
 
@@ -215,7 +253,9 @@ const FileUpload: React.FC<FileUploadProps> = ({ onConfigUploaded }) => {
       return {
         version: atomConfig.version,
         mockCount: atomConfig.mocks?.length || 0,
-        hasTarget: !!atomConfig.target,
+        hasTarget: !!atomConfig.target?.baseUrl,
+        hasAuth: !!atomConfig.target?.auth,
+        targetUrl: atomConfig.target?.baseUrl,
         hasDefaults: !!atomConfig.defaults
       };
     } else {
@@ -224,10 +264,15 @@ const FileUpload: React.FC<FileUploadProps> = ({ onConfigUploaded }) => {
         version: legacyConfig.version,
         mockCount: legacyConfig.mappings?.length || 0,
         hasTarget: !!legacyConfig.baseUrl,
+        hasAuth: false,
+        targetUrl: legacyConfig.baseUrl,
         hasDefaults: false
       };
     }
   };
+
+  const summary = getConfigSummary();
+  const canAutoDeploy = summary?.hasTarget;
 
   return (
     <div className="space-y-6">
@@ -304,17 +349,26 @@ const FileUpload: React.FC<FileUploadProps> = ({ onConfigUploaded }) => {
                   <FontAwesomeIcon icon={faInfoCircle} className="text-blue-600 mr-2" />
                   <span className="font-medium text-blue-800">Configuration Summary</span>
                 </div>
-                {(() => {
-                  const summary = getConfigSummary();
-                  return summary ? (
-                    <div className="text-sm text-blue-700 space-y-1">
-                      <div>Version: {summary.version}</div>
-                      <div>Mock Count: {summary.mockCount}</div>
-                      {summary.hasTarget && <div>? Target configuration present</div>}
-                      {summary.hasDefaults && <div>? Default settings configured</div>}
-                    </div>
-                  ) : null;
-                })()}
+                {summary && (
+                  <div className="text-sm text-blue-700 space-y-1">
+                    <div>Version: {summary.version}</div>
+                    <div>Mock Count: {summary.mockCount}</div>
+                    {summary.hasTarget && (
+                      <div className="flex items-center">
+                        <FontAwesomeIcon icon={faServer} className="mr-1" />
+                        Target: {summary.targetUrl}
+                      </div>
+                    )}
+                    {summary.hasAuth && <div>? Authentication configured</div>}
+                    {summary.hasDefaults && <div>? Default settings configured</div>}
+                    {!summary.hasTarget && (
+                      <div className="text-yellow-700 mt-2">
+                        <FontAwesomeIcon icon={faExclamationTriangle} className="mr-1" />
+                        No target server configured - manual deployment required
+                      </div>
+                    )}
+                  </div>
+                )}
               </div>
             )}
 
@@ -378,22 +432,152 @@ const FileUpload: React.FC<FileUploadProps> = ({ onConfigUploaded }) => {
               </div>
             )}
 
-            {/* Generate Button */}
-            {validationResult?.isValid && (
-              <button
-                onClick={generateMappings}
-                disabled={isGenerating}
-                className="btn-primary w-full"
-              >
-                {isGenerating ? (
-                  <>
-                    <FontAwesomeIcon icon={faSpinner} className="animate-spin mr-2" />
-                    Generating Mappings...
-                  </>
-                ) : (
-                  'Generate Wiremock Mappings'
+            {/* Deployment Result */}
+            {deploymentResult && (
+              <div className={`mb-4 p-3 rounded border ${deploymentResult.success ? 'bg-green-50 border-green-200' : 'bg-red-50 border-red-200'}`}>
+                <div className={`flex items-center mb-2 ${deploymentResult.success ? 'text-green-600' : 'text-red-600'}`}>
+                  <FontAwesomeIcon 
+                    icon={deploymentResult.success ? faCheck : faTimes} 
+                    className="mr-2" 
+                  />
+                  <span className="font-medium">
+                    {deploymentResult.success ? 'Deployment Successful' : 'Deployment Failed'}
+                  </span>
+                </div>
+                <p className={`text-sm ${deploymentResult.success ? 'text-green-700' : 'text-red-700'}`}>
+                  {deploymentResult.message}
+                </p>
+                {deploymentResult.deployed && (
+                  <div className="mt-2 text-sm text-green-700">
+                    <div>Target: {deploymentResult.deployed.target}</div>
+                    <div>Mappings Created: {deploymentResult.deployed.mappingsCount}</div>
+                  </div>
                 )}
-              </button>
+              </div>
+            )}
+
+            {/* Manual Deploy Configuration */}
+            {showManualDeploy && (
+              <div className="bg-gray-50 border border-gray-200 rounded p-4 mb-4">
+                <h4 className="font-medium text-gray-900 mb-3">
+                  <FontAwesomeIcon icon={faCog} className="mr-2" />
+                  Manual Deployment Configuration
+                </h4>
+                <div className="space-y-3">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Wiremock Server URL
+                    </label>
+                    <input
+                      type="url"
+                      value={manualTargetUrl}
+                      onChange={(e) => setManualTargetUrl(e.target.value)}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      placeholder="http://localhost:8080"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Authentication
+                    </label>
+                    <select
+                      value={manualAuth.type}
+                      onChange={(e) => setManualAuth({ ...manualAuth, type: e.target.value as 'basic' | 'none' })}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-2"
+                    >
+                      <option value="none">No Authentication</option>
+                      <option value="basic">Basic Authentication</option>
+                    </select>
+                    {manualAuth.type === 'basic' && (
+                      <div className="grid grid-cols-2 gap-2">
+                        <input
+                          type="text"
+                          value={manualAuth.username}
+                          onChange={(e) => setManualAuth({ ...manualAuth, username: e.target.value })}
+                          placeholder="Username"
+                          className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        />
+                        <input
+                          type="password"
+                          value={manualAuth.password}
+                          onChange={(e) => setManualAuth({ ...manualAuth, password: e.target.value })}
+                          placeholder="Password"
+                          className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        />
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Action Buttons */}
+            {validationResult?.isValid && (
+              <div className="space-y-2">
+                {canAutoDeploy ? (
+                  <button
+                    onClick={validateAndDeploy}
+                    disabled={isDeploying}
+                    className="btn-primary w-full"
+                  >
+                    {isDeploying ? (
+                      <>
+                        <FontAwesomeIcon icon={faSpinner} className="animate-spin mr-2" />
+                        Deploying to Wiremock...
+                      </>
+                    ) : (
+                      <>
+                        <FontAwesomeIcon icon={faRocket} className="mr-2" />
+                        Deploy to Wiremock ({summary?.targetUrl})
+                      </>
+                    )}
+                  </button>
+                ) : (
+                  <>
+                    <button
+                      onClick={() => setShowManualDeploy(!showManualDeploy)}
+                      className="btn-primary w-full"
+                    >
+                      <FontAwesomeIcon icon={faCog} className="mr-2" />
+                      Configure Manual Deployment
+                    </button>
+                    {showManualDeploy && (
+                      <button
+                        onClick={deployWithManualConfig}
+                        disabled={isDeploying}
+                        className="btn-secondary w-full"
+                      >
+                        {isDeploying ? (
+                          <>
+                            <FontAwesomeIcon icon={faSpinner} className="animate-spin mr-2" />
+                            Deploying to Wiremock...
+                          </>
+                        ) : (
+                          <>
+                            <FontAwesomeIcon icon={faRocket} className="mr-2" />
+                            Deploy to {manualTargetUrl}
+                          </>
+                        )}
+                      </button>
+                    )}
+                  </>
+                )}
+                
+                <button
+                  onClick={generateMappings}
+                  disabled={isGenerating}
+                  className="btn-secondary w-full"
+                >
+                  {isGenerating ? (
+                    <>
+                      <FontAwesomeIcon icon={faSpinner} className="animate-spin mr-2" />
+                      Generating Mappings...
+                    </>
+                  ) : (
+                    'Generate Mappings Only'
+                  )}
+                </button>
+              </div>
             )}
           </div>
         )}
