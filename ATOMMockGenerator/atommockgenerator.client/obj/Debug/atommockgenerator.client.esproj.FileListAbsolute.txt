@@ -1,0 +1,1 @@
+C:\Users\raghavendrasiddaling\source\MockGenerator\ATOMMockGenerator\atommockgenerator.client\obj\Debug\atommockgenerator.client.esproj.CoreCompileInputs.cache

@@ -1,0 +1,88 @@
+{
+  "version": "1.0",
+  "target": {
+    "baseUrl": "http://wiremock.local:8080",
+    "auth": {
+      "type": "basic",
+      "username": "svc",
+      "password": "*****"
+    }
+  },
+  "defaults": {
+    "priority": 5,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "templating": {
+      "enabled": false
+    }
+  },
+  "mocks": [
+    {
+      "name": "Get user by id",
+      "priority": 1,
+      "request": {
+        "method": "GET",
+        "urlPath": "/users/{userId}",
+        "pathTemplate": "/users/{userId}",
+        "queryParameters": {
+          "verbose": {
+            "equalTo": "true"
+          }
+        },
+        "headers": {
+          "Accept": {
+            "contains": "application/json"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "type": "inline",
+          "value": "{ \"id\": \"{{request.pathSegments.[1]}}\", \"name\": \"John\" }",
+          "templating": true
+        },
+        "fixedDelayMilliseconds": 100
+      },
+      "scenario": {
+        "name": "User lifecycle",
+        "requiredState": "Started",
+        "newState": "Fetched"
+      },
+      "metadata": {
+        "owner": "team-a",
+        "jira": "ABC-123"
+      }
+    },
+    {
+      "name": "Create user",
+      "priority": 2,
+      "request": {
+        "method": "POST",
+        "urlPath": "/users",
+        "bodyPatterns": [
+          {
+            "equalToJson": {
+              "json": "{ \"role\": \"basic\" }",
+              "ignoreExtraElements": true
+            }
+          }
+        ]
+      },
+      "response": {
+        "status": 201,
+        "headers": {
+          "Location": "/users/1001"
+        },
+        "body": {
+          "type": "file",
+          "fileName": "users/create-success.json"
+        }
+      }
+    }
+  ]
+}

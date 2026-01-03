@@ -1,0 +1,231 @@
+import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes, faSave, faCode } from '@fortawesome/free-solid-svg-icons';
+import type { WiremockMapping } from '../../types';
+
+interface MappingEditorProps {
+  mapping: WiremockMapping;
+  onSave: (mapping: WiremockMapping) => void;
+  onCancel: () => void;
+}
+
+const MappingEditor: React.FC<MappingEditorProps> = ({ mapping, onSave, onCancel }) => {
+  const [editedMapping, setEditedMapping] = useState<WiremockMapping>({ ...mapping });
+  const [jsonView, setJsonView] = useState(false);
+  const [jsonText, setJsonText] = useState(JSON.stringify(mapping, null, 2));
+  const [jsonError, setJsonError] = useState<string | null>(null);
+
+  const handleSave = () => {
+    if (jsonView) {
+      try {
+        const parsedMapping = JSON.parse(jsonText);
+        onSave(parsedMapping);
+      } catch (error) {
+        setJsonError('Invalid JSON format');
+        return;
+      }
+    } else {
+      onSave(editedMapping);
+    }
+  };
+
+  const handleJsonToggle = () => {
+    if (!jsonView) {
+      setJsonText(JSON.stringify(editedMapping, null, 2));
+      setJsonError(null);
+    } else {
+      try {
+        const parsed = JSON.parse(jsonText);
+        setEditedMapping(parsed);
+        setJsonError(null);
+      } catch (error) {
+        setJsonError('Invalid JSON format. Please fix the JSON before switching back to form view.');
+        return;
+      }
+    }
+    setJsonView(!jsonView);
+  };
+
+  const updateField = (path: string, value: any) => {
+    const newMapping = { ...editedMapping };
+    const keys = path.split('.');
+    let current: any = newMapping;
+    
+    for (let i = 0; i < keys.length - 1; i++) {
+      if (!current[keys[i]]) {
+        current[keys[i]] = {};
+      }
+      current = current[keys[i]];
+    }
+    
+    current[keys[keys.length - 1]] = value;
+    setEditedMapping(newMapping);
+  };
+
+  return (
+    <div className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50">
+      <div className="relative top-20 mx-auto p-5 border w-11/12 max-w-4xl shadow-lg rounded-md bg-white">
+        {/* Header */}
+        <div className="flex items-center justify-between mb-6">
+          <h3 className="text-lg font-medium text-gray-900">Edit Mapping</h3>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={handleJsonToggle}
+              className={`px-3 py-1 text-sm rounded ${
+                jsonView ? 'bg-blue-100 text-blue-700' : 'bg-gray-100 text-gray-700'
+              }`}
+            >
+              <FontAwesomeIcon icon={faCode} className="mr-1" />
+              {jsonView ? 'Form View' : 'JSON View'}
+            </button>
+            <button
+              onClick={onCancel}
+              className="text-gray-400 hover:text-gray-600"
+            >
+              <FontAwesomeIcon icon={faTimes} className="h-5 w-5" />
+            </button>
+          </div>
+        </div>
+
+        {jsonError && (
+          <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded text-red-700 text-sm">
+            {jsonError}
+          </div>
+        )}
+
+        {/* Content */}
+        <div className="max-h-96 overflow-y-auto mb-6">
+          {jsonView ? (
+            <textarea
+              value={jsonText}
+              onChange={(e) => {
+                setJsonText(e.target.value);
+                setJsonError(null);
+              }}
+              className="w-full h-80 p-3 border border-gray-300 rounded font-mono text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Enter JSON mapping..."
+            />
+          ) : (
+            <div className="space-y-6">
+              {/* Request Section */}
+              <div>
+                <h4 className="text-md font-medium text-gray-900 mb-3">Request</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Method
+                    </label>
+                    <select
+                      value={editedMapping.request.method}
+                      onChange={(e) => updateField('request.method', e.target.value)}
+                      className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    >
+                      <option value="GET">GET</option>
+                      <option value="POST">POST</option>
+                      <option value="PUT">PUT</option>
+                      <option value="DELETE">DELETE</option>
+                      <option value="PATCH">PATCH</option>
+                      <option value="HEAD">HEAD</option>
+                      <option value="OPTIONS">OPTIONS</option>
+                    </select>
+                  </div>
+                  
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      URL
+                    </label>
+                    <input
+                      type="text"
+                      value={editedMapping.request.url || ''}
+                      onChange={(e) => updateField('request.url', e.target.value)}
+                      className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      placeholder="/api/example"
+                    />
+                  </div>
+                  
+                  <div className="md:col-span-2">
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      URL Pattern (regex)
+                    </label>
+                    <input
+                      type="text"
+                      value={editedMapping.request.urlPattern || ''}
+                      onChange={(e) => updateField('request.urlPattern', e.target.value)}
+                      className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      placeholder="/api/users/[0-9]+"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Response Section */}
+              <div>
+                <h4 className="text-md font-medium text-gray-900 mb-3">Response</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Status Code
+                    </label>
+                    <input
+                      type="number"
+                      value={editedMapping.response.status}
+                      onChange={(e) => updateField('response.status', parseInt(e.target.value))}
+                      className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      min="100"
+                      max="599"
+                    />
+                  </div>
+                  
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Priority
+                    </label>
+                    <input
+                      type="number"
+                      value={editedMapping.priority || 1}
+                      onChange={(e) => updateField('priority', parseInt(e.target.value))}
+                      className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    />
+                  </div>
+                  
+                  <div className="md:col-span-2">
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Response Body
+                    </label>
+                    <textarea
+                      value={editedMapping.response.body || ''}
+                      onChange={(e) => updateField('response.body', e.target.value)}
+                      rows={4}
+                      className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      placeholder="Response content..."
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Footer */}
+        <div className="flex justify-end gap-3">
+          <button
+            onClick={onCancel}
+            className="btn-secondary"
+          >
+            Cancel
+          </button>
+          <button
+            onClick={handleSave}
+            className="btn-primary"
+            disabled={!!jsonError}
+          >
+            <FontAwesomeIcon icon={faSave} className="mr-2" />
+            Save Changes
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default MappingEditor;

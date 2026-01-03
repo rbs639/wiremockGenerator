@@ -1,0 +1,6 @@
+@ATOMMockGenerator.Server_HostAddress = http://localhost:5188
+
+GET {{ATOMMockGenerator.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

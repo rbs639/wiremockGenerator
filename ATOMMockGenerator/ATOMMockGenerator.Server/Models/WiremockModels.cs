@@ -1,0 +1,166 @@
+using System.Text.Json;
+
+namespace ATOMMockGenerator.Server.Models
+{
+    // ATOM Config Models (new format)
+    public class ATOMConfig
+    {
+        public string Version { get; set; } = string.Empty;
+        public TargetConfig? Target { get; set; }
+        public DefaultsConfig? Defaults { get; set; }
+        public List<MockConfig> Mocks { get; set; } = new();
+    }
+
+    public class TargetConfig
+    {
+        public string BaseUrl { get; set; } = string.Empty;
+        public AuthConfig? Auth { get; set; }
+    }
+
+    public class AuthConfig
+    {
+        public string Type { get; set; } = "none"; // none, basic, bearer
+        public string? Username { get; set; }
+        public string? Password { get; set; }
+        public string? Token { get; set; }
+    }
+
+    public class DefaultsConfig
+    {
+        public int? Priority { get; set; }
+        public Dictionary<string, string>? Headers { get; set; }
+        public TemplatingConfig? Templating { get; set; }
+    }
+
+    public class TemplatingConfig
+    {
+        public bool? Enabled { get; set; }
+    }
+
+    public class MockConfig
+    {
+        public string? Name { get; set; }
+        public int? Priority { get; set; }
+        public MockRequest Request { get; set; } = new();
+        public MockResponse Response { get; set; } = new();
+        public ScenarioConfig? Scenario { get; set; }
+        public Dictionary<string, object>? Metadata { get; set; }
+    }
+
+    public class MockRequest
+    {
+        public string Method { get; set; } = string.Empty;
+        public string? Url { get; set; }
+        public string? UrlPattern { get; set; }
+        public string? UrlPath { get; set; }
+        public string? UrlPathPattern { get; set; }
+        public string? PathTemplate { get; set; }
+        public Dictionary<string, RequestMatcher>? QueryParameters { get; set; }
+        public Dictionary<string, RequestMatcher>? Headers { get; set; }
+        public Dictionary<string, RequestMatcher>? Cookies { get; set; }
+        public List<RequestBodyPattern>? BodyPatterns { get; set; }
+    }
+
+    public class RequestMatcher
+    {
+        public string? EqualTo { get; set; }
+        public string? Contains { get; set; }
+        public string? Matches { get; set; }
+    }
+
+    public class RequestBodyPattern
+    {
+        public EqualToJsonPattern? EqualToJson { get; set; }
+        public string? MatchesJsonPath { get; set; }
+    }
+
+    public class EqualToJsonPattern
+    {
+        public string Json { get; set; } = string.Empty;
+        public bool? IgnoreExtraElements { get; set; }
+        public bool? IgnoreArrayOrder { get; set; }
+    }
+
+    public class MockResponse
+    {
+        public int Status { get; set; } = 200;
+        public Dictionary<string, string>? Headers { get; set; }
+        public int? FixedDelayMilliseconds { get; set; }
+        public string? ProxyBaseUrl { get; set; }
+        public ResponseBody? Body { get; set; }
+    }
+
+    public class ResponseBody
+    {
+        public string Type { get; set; } = "inline"; // inline, file
+        public string? Value { get; set; }
+        public string? FileName { get; set; }
+        public bool? Templating { get; set; }
+    }
+
+    public class ScenarioConfig
+    {
+        public string? Name { get; set; }
+        public string? RequiredState { get; set; }
+        public string? NewState { get; set; }
+    }
+
+    // Legacy WireMock models (existing format)
+    public class WiremockMapping
+    {
+        public string Id { get; set; } = Guid.NewGuid().ToString();
+        public WiremockRequest Request { get; set; } = new();
+        public WiremockResponse Response { get; set; } = new();
+        public int? Priority { get; set; }
+        public string? ScenarioName { get; set; }
+        public string? RequiredScenarioState { get; set; }
+        public string? NewScenarioState { get; set; }
+    }
+
+    public class WiremockRequest
+    {
+        public string Method { get; set; } = string.Empty;
+        public string? Url { get; set; }
+        public string? UrlPattern { get; set; }
+        public Dictionary<string, object>? Headers { get; set; }
+        public List<object>? BodyPatterns { get; set; }
+    }
+
+    public class WiremockResponse
+    {
+        public int Status { get; set; } = 200;
+        public Dictionary<string, string>? Headers { get; set; }
+        public string? Body { get; set; }
+        public JsonElement? JsonBody { get; set; }
+        public string? BodyFileName { get; set; }
+    }
+
+    public class JsonConfig
+    {
+        public string Name { get; set; } = string.Empty;
+        public string Version { get; set; } = string.Empty;
+        public List<WiremockMapping> Mappings { get; set; } = new();
+        public string? BaseUrl { get; set; }
+        public int? Port { get; set; }
+    }
+
+    // Updated validation models
+    public class ValidationError
+    {
+        public string Path { get; set; } = string.Empty;
+        public string Message { get; set; } = string.Empty;
+        public string Severity { get; set; } = "error"; // error, warning
+    }
+
+    public class ValidationResult
+    {
+        public bool IsValid { get; set; }
+        public List<ValidationError> Errors { get; set; } = new();
+        public List<ValidationError> Warnings { get; set; } = new();
+    }
+
+    public class DownloadRequest
+    {
+        public List<string> MappingIds { get; set; } = new();
+    }
+}
