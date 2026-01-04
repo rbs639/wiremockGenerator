@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Layout from './components/Layout.js';
 import FileUpload from './components/upload/FileUpload.js';
-import MappingList from './components/manage/MappingList.js';
+import MappingList from './components/manage/MappingListModern.js';
 import type { JsonConfig, ATOMConfig, User } from './types/index.js';
 import './App.css';
 

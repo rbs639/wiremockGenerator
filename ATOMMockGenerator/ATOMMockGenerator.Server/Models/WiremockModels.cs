@@ -61,6 +61,15 @@ namespace ATOMMockGenerator.Server.Models
         public List<RequestBodyPattern>? BodyPatterns { get; set; }
     }
 
+    public class MockResponse
+    {
+        public int Status { get; set; }
+        public Dictionary<string, string>? Headers { get; set; }
+        public int? FixedDelayMilliseconds { get; set; }
+        public string? ProxyBaseUrl { get; set; }
+        public ResponseBody? Body { get; set; }
+    }
+
     public class RequestMatcher
     {
         public string? EqualTo { get; set; }
@@ -81,18 +90,9 @@ namespace ATOMMockGenerator.Server.Models
         public bool? IgnoreArrayOrder { get; set; }
     }
 
-    public class MockResponse
-    {
-        public int Status { get; set; } = 200;
-        public Dictionary<string, string>? Headers { get; set; }
-        public int? FixedDelayMilliseconds { get; set; }
-        public string? ProxyBaseUrl { get; set; }
-        public ResponseBody? Body { get; set; }
-    }
-
     public class ResponseBody
     {
-        public string Type { get; set; } = "inline"; // inline, file
+        public string Type { get; set; } = string.Empty; // inline or file
         public string? Value { get; set; }
         public string? FileName { get; set; }
         public bool? Templating { get; set; }
@@ -105,10 +105,35 @@ namespace ATOMMockGenerator.Server.Models
         public string? NewState { get; set; }
     }
 
-    // Legacy WireMock models (existing format)
+    // Validation Models
+    public class ValidationResult
+    {
+        public bool IsValid { get; set; }
+        public List<ValidationError> Errors { get; set; } = new();
+        public List<ValidationError> Warnings { get; set; } = new();
+    }
+
+    public class ValidationError
+    {
+        public string Path { get; set; } = string.Empty;
+        public string Message { get; set; } = string.Empty;
+        public string Severity { get; set; } = string.Empty; // error or warning
+    }
+
+    // Legacy JsonConfig Models
+    public class JsonConfig
+    {
+        public string Name { get; set; } = string.Empty;
+        public string Version { get; set; } = string.Empty;
+        public List<WiremockMapping> Mappings { get; set; } = new();
+        public string? BaseUrl { get; set; }
+        public int? Port { get; set; }
+    }
+
+    // Wiremock Models
     public class WiremockMapping
     {
-        public string Id { get; set; } = Guid.NewGuid().ToString();
+        public string Id { get; set; } = string.Empty;
         public WiremockRequest Request { get; set; } = new();
         public WiremockResponse Response { get; set; } = new();
         public int? Priority { get; set; }
@@ -128,42 +153,14 @@ namespace ATOMMockGenerator.Server.Models
 
     public class WiremockResponse
     {
-        public int Status { get; set; } = 200;
+        public int Status { get; set; }
         public Dictionary<string, string>? Headers { get; set; }
         public string? Body { get; set; }
-        public JsonElement? JsonBody { get; set; }
+        public object? JsonBody { get; set; }
         public string? BodyFileName { get; set; }
     }
 
-    public class JsonConfig
-    {
-        public string Name { get; set; } = string.Empty;
-        public string Version { get; set; } = string.Empty;
-        public List<WiremockMapping> Mappings { get; set; } = new();
-        public string? BaseUrl { get; set; }
-        public int? Port { get; set; }
-    }
-
-    // Updated validation models
-    public class ValidationError
-    {
-        public string Path { get; set; } = string.Empty;
-        public string Message { get; set; } = string.Empty;
-        public string Severity { get; set; } = "error"; // error, warning
-    }
-
-    public class ValidationResult
-    {
-        public bool IsValid { get; set; }
-        public List<ValidationError> Errors { get; set; } = new();
-        public List<ValidationError> Warnings { get; set; } = new();
-    }
-
-    public class DownloadRequest
-    {
-        public List<string> MappingIds { get; set; } = new();
-    }
-
+    // Request Models for API endpoints
     public class DeployMappingsRequest
     {
         public string TargetUrl { get; set; } = string.Empty;
@@ -175,5 +172,17 @@ namespace ATOMMockGenerator.Server.Models
     {
         public string TargetUrl { get; set; } = string.Empty;
         public AuthConfig? Auth { get; set; }
+    }
+
+    public class GetMappingsRequest
+    {
+        public string TargetUrl { get; set; } = string.Empty;
+        public AuthConfig? Auth { get; set; }
+    }
+
+    // Additional request models used in other controllers
+    public class DownloadRequest
+    {
+        public List<string> MappingIds { get; set; } = new();
     }
 }

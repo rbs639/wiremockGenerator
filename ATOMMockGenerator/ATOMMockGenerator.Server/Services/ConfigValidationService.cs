@@ -101,7 +101,7 @@ namespace ATOMMockGenerator.Server.Services
                     // Check for conflicting response body types
                     var bodyCount = 0;
                     if (!string.IsNullOrWhiteSpace(mapping.Response.Body)) bodyCount++;
-                    if (mapping.Response.JsonBody.HasValue) bodyCount++;
+                    if (mapping.Response.JsonBody != null) bodyCount++;
                     if (!string.IsNullOrWhiteSpace(mapping.Response.BodyFileName)) bodyCount++;
 
                     if (bodyCount > 1)

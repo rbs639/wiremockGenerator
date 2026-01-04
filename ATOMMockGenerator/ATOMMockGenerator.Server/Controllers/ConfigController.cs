@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using ATOMMockGenerator.Server.Models;
 using ATOMMockGenerator.Server.Services;
 using System.Text.Json;
+using Microsoft.Extensions.Logging;
 
 namespace ATOMMockGenerator.Server.Controllers
 {
@@ -12,12 +13,18 @@ namespace ATOMMockGenerator.Server.Controllers
         private readonly IConfigValidationService _validationService;
         private readonly IMappingService _mappingService;
         private readonly IWiremockAdminService _wiremockAdminService;
+        private readonly ILogger<ConfigController> _logger;
 
-        public ConfigController(IConfigValidationService validationService, IMappingService mappingService, IWiremockAdminService wiremockAdminService)
+        public ConfigController(
+            IConfigValidationService validationService, 
+            IMappingService mappingService, 
+            IWiremockAdminService wiremockAdminService,
+            ILogger<ConfigController> logger)
         {
             _validationService = validationService;
             _mappingService = mappingService;
             _wiremockAdminService = wiremockAdminService;
+            _logger = logger;
         }
 
         [HttpPost("validate")]
@@ -25,18 +32,16 @@ namespace ATOMMockGenerator.Server.Controllers
         {
             try
             {
-                // Debug logging
-                Console.WriteLine($"Received JSON: {configJson.GetRawText()}");
+                _logger.LogInformation("Received JSON for validation: {ConfigLength} characters", configJson.GetRawText().Length);
                 
                 var result = _validationService.ValidateConfigFromJson(configJson);
-                Console.WriteLine($"Validation result: IsValid={result.IsValid}, Errors={result.Errors.Count}");
+                _logger.LogInformation("Validation result: IsValid={IsValid}, Errors={ErrorCount}", result.IsValid, result.Errors.Count);
                 
                 return Ok(result);
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Validation exception: {ex.Message}");
-                Console.WriteLine($"Stack trace: {ex.StackTrace}");
+                _logger.LogError(ex, "Validation failed");
                 
                 return BadRequest(new ValidationResult
                 {
@@ -54,13 +59,14 @@ namespace ATOMMockGenerator.Server.Controllers
         {
             try
             {
-                Console.WriteLine($"Received JSON for mapping generation: {configJson.GetRawText()}");
+                _logger.LogInformation("Received JSON for mapping generation: {ConfigLength} characters", configJson.GetRawText().Length);
 
                 // First validate the config
                 var validationResult = _validationService.ValidateConfigFromJson(configJson);
                 
                 if (!validationResult.IsValid)
                 {
+                    _logger.LogWarning("Configuration validation failed with {ErrorCount} errors", validationResult.Errors.Count);
                     return BadRequest(new { 
                         success = false, 
                         message = "Configuration validation failed",
@@ -82,9 +88,11 @@ namespace ATOMMockGenerator.Server.Controllers
 
                 if (isAtomConfig)
                 {
+                    _logger.LogInformation("Processing ATOM config format");
                     var atomConfig = JsonSerializer.Deserialize<ATOMConfig>(configJson.GetRawText(), options);
                     if (atomConfig == null)
                     {
+                        _logger.LogError("Failed to deserialize ATOM config");
                         return BadRequest(new { success = false, message = "Failed to deserialize ATOM config" });
                     }
 
@@ -92,23 +100,24 @@ namespace ATOMMockGenerator.Server.Controllers
                 }
                 else
                 {
+                    _logger.LogInformation("Processing legacy config format");
                     var legacyConfig = JsonSerializer.Deserialize<JsonConfig>(configJson.GetRawText(), options);
                     if (legacyConfig == null)
                     {
+                        _logger.LogError("Failed to deserialize legacy config");
                         return BadRequest(new { success = false, message = "Failed to deserialize legacy config" });
                     }
 
                     mappings = await _mappingService.GenerateMappingsAsync(legacyConfig);
                 }
 
-                Console.WriteLine($"Generated {mappings.Count} mappings");
+                _logger.LogInformation("Generated {MappingCount} mappings successfully", mappings.Count);
 
                 return Ok(mappings);
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Mapping generation exception: {ex.Message}");
-                Console.WriteLine($"Stack trace: {ex.StackTrace}");
+                _logger.LogError(ex, "Mapping generation failed");
                 
                 return StatusCode(500, new
                 {
@@ -124,15 +133,15 @@ namespace ATOMMockGenerator.Server.Controllers
         {
             try
             {
-                // Debug logging
-                Console.WriteLine($"Received JSON for validation and deployment: {configJson.GetRawText()}");
+                _logger.LogInformation("Received JSON for validation and deployment: {ConfigLength} characters", configJson.GetRawText().Length);
                 
                 // First validate the config
                 var validationResult = _validationService.ValidateConfigFromJson(configJson);
-                Console.WriteLine($"Validation result: IsValid={validationResult.IsValid}, Errors={validationResult.Errors.Count}");
+                _logger.LogInformation("Validation result: IsValid={IsValid}, Errors={ErrorCount}", validationResult.IsValid, validationResult.Errors.Count);
                 
                 if (!validationResult.IsValid)
                 {
+                    _logger.LogWarning("Configuration validation failed, deployment aborted");
                     return BadRequest(new
                     {
                         success = false,
@@ -157,15 +166,18 @@ namespace ATOMMockGenerator.Server.Controllers
 
                 if (isAtomConfig)
                 {
+                    _logger.LogInformation("Processing ATOM config for deployment");
                     var atomConfig = JsonSerializer.Deserialize<ATOMConfig>(configJson.GetRawText(), options);
                     if (atomConfig == null)
                     {
+                        _logger.LogError("Failed to deserialize ATOM config");
                         return BadRequest(new { success = false, message = "Failed to deserialize ATOM config" });
                     }
 
                     // Extract target configuration
                     if (atomConfig.Target == null || string.IsNullOrWhiteSpace(atomConfig.Target.BaseUrl))
                     {
+                        _logger.LogError("Target baseUrl is missing in ATOM config");
                         return BadRequest(new { success = false, message = "Target baseUrl is required for ATOM config" });
                     }
 
@@ -176,9 +188,11 @@ namespace ATOMMockGenerator.Server.Controllers
                 }
                 else
                 {
+                    _logger.LogInformation("Processing legacy config for deployment");
                     var legacyConfig = JsonSerializer.Deserialize<JsonConfig>(configJson.GetRawText(), options);
                     if (legacyConfig == null)
                     {
+                        _logger.LogError("Failed to deserialize legacy config");
                         return BadRequest(new { success = false, message = "Failed to deserialize legacy config" });
                     }
 
@@ -188,10 +202,12 @@ namespace ATOMMockGenerator.Server.Controllers
                     mappings = await _mappingService.GenerateMappingsAsync(legacyConfig);
                 }
 
-                Console.WriteLine($"Generated {mappings.Count} mappings, deploying to {targetBaseUrl}");
+                _logger.LogInformation("Generated {MappingCount} mappings, deploying to {TargetUrl}", mappings.Count, targetBaseUrl);
 
                 // Deploy mappings to Wiremock
                 var deployedMappings = await _wiremockAdminService.CreateMappingsAsync(targetBaseUrl, mappings, authConfig);
+
+                _logger.LogInformation("Successfully deployed {DeployedCount} mappings to {TargetUrl}", deployedMappings.Count, targetBaseUrl);
 
                 var response = new
                 {
@@ -210,8 +226,7 @@ namespace ATOMMockGenerator.Server.Controllers
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Validation and deployment exception: {ex.Message}");
-                Console.WriteLine($"Stack trace: {ex.StackTrace}");
+                _logger.LogError(ex, "Validation and deployment failed");
                 
                 return StatusCode(500, new
                 {
@@ -229,18 +244,22 @@ namespace ATOMMockGenerator.Server.Controllers
             {
                 if (string.IsNullOrWhiteSpace(request.TargetUrl))
                 {
+                    _logger.LogWarning("Deploy mappings request missing target URL");
                     return BadRequest(new { success = false, message = "Target URL is required" });
                 }
 
                 if (request.Mappings == null || !request.Mappings.Any())
                 {
+                    _logger.LogWarning("Deploy mappings request has no mappings");
                     return BadRequest(new { success = false, message = "At least one mapping is required" });
                 }
 
-                Console.WriteLine($"Deploying {request.Mappings.Count} mappings to {request.TargetUrl}");
+                _logger.LogInformation("Deploying {MappingCount} mappings to {TargetUrl}", request.Mappings.Count, request.TargetUrl);
 
                 // Deploy mappings to Wiremock
                 var deployedMappings = await _wiremockAdminService.CreateMappingsAsync(request.TargetUrl, request.Mappings, request.Auth);
+
+                _logger.LogInformation("Successfully deployed {DeployedCount} mappings to {TargetUrl}", deployedMappings.Count, request.TargetUrl);
 
                 var response = new
                 {
@@ -258,7 +277,7 @@ namespace ATOMMockGenerator.Server.Controllers
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Deployment exception: {ex.Message}");
+                _logger.LogError(ex, "Deployment failed for target {TargetUrl}", request.TargetUrl);
                 
                 return StatusCode(500, new
                 {
@@ -276,12 +295,15 @@ namespace ATOMMockGenerator.Server.Controllers
             {
                 if (string.IsNullOrWhiteSpace(request.TargetUrl))
                 {
+                    _logger.LogWarning("Reset wiremock request missing target URL");
                     return BadRequest(new { success = false, message = "Target URL is required" });
                 }
 
-                Console.WriteLine($"Resetting all mappings on {request.TargetUrl}");
+                _logger.LogInformation("Resetting all mappings on {TargetUrl}", request.TargetUrl);
 
                 await _wiremockAdminService.ResetMappingsAsync(request.TargetUrl, request.Auth);
+
+                _logger.LogInformation("Successfully reset all mappings on {TargetUrl}", request.TargetUrl);
 
                 return Ok(new
                 {
@@ -291,7 +313,7 @@ namespace ATOMMockGenerator.Server.Controllers
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Reset exception: {ex.Message}");
+                _logger.LogError(ex, "Reset failed for target {TargetUrl}", request.TargetUrl);
                 
                 return StatusCode(500, new
                 {
@@ -604,6 +626,47 @@ namespace ATOMMockGenerator.Server.Controllers
             };
 
             return Ok(examples);
+        }
+
+        [HttpPost("get-wiremock-mappings")]
+        public async Task<IActionResult> GetWiremockMappings([FromBody] GetMappingsRequest request)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(request.TargetUrl))
+                {
+                    _logger.LogWarning("Get mappings request missing target URL");
+                    return BadRequest(new { success = false, message = "Target URL is required" });
+                }
+
+                _logger.LogInformation("Fetching mappings from {TargetUrl}", request.TargetUrl);
+
+                // Get mappings from Wiremock
+                var mappings = await _wiremockAdminService.GetAllMappingsAsync(request.TargetUrl, request.Auth);
+
+                _logger.LogInformation("Successfully retrieved {MappingCount} mappings from {TargetUrl}", mappings.Count, request.TargetUrl);
+
+                var response = new
+                {
+                    success = true,
+                    mappings = mappings,
+                    count = mappings.Count,
+                    target = request.TargetUrl
+                };
+
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Failed to get mappings from {TargetUrl}", request.TargetUrl);
+                
+                return StatusCode(500, new
+                {
+                    success = false,
+                    message = $"Failed to get mappings: {ex.Message}",
+                    error = ex.Message
+                });
+            }
         }
     }
 }

@@ -43,6 +43,25 @@ export interface ResetWiremockRequest {
   };
 }
 
+export interface GetMappingsRequest {
+  targetUrl: string;
+  auth?: {
+    type: 'none' | 'basic' | 'bearer';
+    username?: string;
+    password?: string;
+    token?: string;
+  };
+}
+
+export interface GetMappingsResponse {
+  success: boolean;
+  mappings: WiremockMapping[];
+  count: number;
+  target: string;
+  message?: string;
+  error?: string;
+}
+
 export const configService = {
   async validateConfig(config: JsonConfig | ATOMConfig): Promise<ValidationResult> {
     console.log('API service - validateConfig called with:', config);
@@ -108,6 +127,19 @@ export const configService = {
       return response.data;
     } catch (error) {
       console.error('API service - reset wiremock failed:', error);
+      throw error;
+    }
+  },
+
+  async getWiremockMappings(request: GetMappingsRequest): Promise<GetMappingsResponse> {
+    console.log('API service - getWiremockMappings called with:', request);
+    
+    try {
+      const response = await api.post<GetMappingsResponse>('/config/get-wiremock-mappings', request);
+      console.log('API service - get wiremock mappings response:', response.data);
+      return response.data;
+    } catch (error) {
+      console.error('API service - get wiremock mappings failed:', error);
       throw error;
     }
   },
