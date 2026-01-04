@@ -1,2 +1,3 @@
 C:\Users\raghavendrasiddaling\source\MockGenerator\ATOMMockGenerator\atommockgenerator.client\obj\Debug\atommockgenerator.client.esproj.CoreCompileInputs.cache
 C:\Users\raghavendrasiddaling\source\MockGenerator\wiremockGenerator\ATOMMockGenerator\atommockgenerator.client\obj\Debug\atommockgenerator.client.esproj.CoreCompileInputs.cache
+C:\Users\raghavendrasiddaling\source\MockGenerator\wiremockGenerator\wiremockGenerator\ATOMMockGenerator\atommockgenerator.client\obj\Debug\atommockgenerator.client.esproj.CoreCompileInputs.cache

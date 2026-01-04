@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\ATOMMockGenerator\\ATOMMockGenerator.Server\\ATOMMockGenerator.Server.csproj": {}
+    "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\wiremockGenerator\\ATOMMockGenerator\\ATOMMockGenerator.Server\\ATOMMockGenerator.Server.csproj": {}
   },
   "projects": {
-    "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\ATOMMockGenerator\\ATOMMockGenerator.Server\\ATOMMockGenerator.Server.csproj": {
+    "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\wiremockGenerator\\ATOMMockGenerator\\ATOMMockGenerator.Server\\ATOMMockGenerator.Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\ATOMMockGenerator\\ATOMMockGenerator.Server\\ATOMMockGenerator.Server.csproj",
+        "projectUniqueName": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\wiremockGenerator\\ATOMMockGenerator\\ATOMMockGenerator.Server\\ATOMMockGenerator.Server.csproj",
         "projectName": "ATOMMockGenerator.Server",
-        "projectPath": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\ATOMMockGenerator\\ATOMMockGenerator.Server\\ATOMMockGenerator.Server.csproj",
+        "projectPath": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\wiremockGenerator\\ATOMMockGenerator\\ATOMMockGenerator.Server\\ATOMMockGenerator.Server.csproj",
         "packagesPath": "C:\\Users\\raghavendrasiddaling\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\ATOMMockGenerator\\ATOMMockGenerator.Server\\obj\\",
+        "outputPath": "C:\\Users\\raghavendrasiddaling\\source\\MockGenerator\\wiremockGenerator\\wiremockGenerator\\ATOMMockGenerator\\ATOMMockGenerator.Server\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

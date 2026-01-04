@@ -87,3 +87,119 @@
   padding: 1.5rem;
   border: 1px solid #e5e7eb;
 }
+
+/* Modern table styles */
+.mapping-table {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.mapping-table th {
+  font-weight: 600;
+  text-align: left;
+  padding: 0.75rem 1rem;
+  background-color: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.mapping-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #f3f4f6;
+  vertical-align: top;
+}
+
+.mapping-table tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+.mapping-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.method-badge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.method-get { background-color: #dcfce7; color: #166534; }
+.method-post { background-color: #dbeafe; color: #1e40af; }
+.method-put { background-color: #fef3c7; color: #92400e; }
+.method-delete { background-color: #fee2e2; color: #991b1b; }
+.method-patch { background-color: #e0e7ff; color: #3730a3; }
+
+.url-code {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  background-color: #f3f4f6;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  word-break: break-all;
+}
+
+.expand-button {
+  background-color: #f3f4f6;
+  color: #6b7280;
+  border: none;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.expand-button:hover {
+  background-color: #e5e7eb;
+  color: #374151;
+}
+
+.details-panel {
+  background-color: #fafafa;
+  border-top: 1px solid #e5e7eb;
+}
+
+.details-content {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  background-color: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.25rem;
+  padding: 0.75rem;
+  font-size: 0.75rem;
+  overflow: auto;
+  max-height: 10rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.status-indicator {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.status-success {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.status-error {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+.status-warning {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.status-info {
+  background-color: #dbeafe;
+  color: #1e40af;
+}

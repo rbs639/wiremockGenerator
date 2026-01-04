@@ -19,8 +19,8 @@ function App() {
   const handleConfigUploaded = (config: JsonConfig | ATOMConfig) => {
     console.log('Config uploaded:', config);
     setUploadedConfig(config);
-    // Auto-switch to manage tab after successful upload
-    setActiveTab('manage');
+    // Don't auto-switch to manage tab - let user see the mappings table and deploy buttons first
+    // User can manually switch to manage tab if needed
   };
 
   return (

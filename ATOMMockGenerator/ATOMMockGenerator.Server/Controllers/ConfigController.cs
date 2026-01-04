@@ -49,6 +49,76 @@ namespace ATOMMockGenerator.Server.Controllers
             }
         }
 
+        [HttpPost("generate-mappings")]
+        public async Task<IActionResult> GenerateMappings([FromBody] JsonElement configJson)
+        {
+            try
+            {
+                Console.WriteLine($"Received JSON for mapping generation: {configJson.GetRawText()}");
+
+                // First validate the config
+                var validationResult = _validationService.ValidateConfigFromJson(configJson);
+                
+                if (!validationResult.IsValid)
+                {
+                    return BadRequest(new { 
+                        success = false, 
+                        message = "Configuration validation failed",
+                        validation = validationResult
+                    });
+                }
+
+                // Configure JsonSerializer options for camelCase naming
+                var options = new JsonSerializerOptions
+                {
+                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                    PropertyNameCaseInsensitive = true
+                };
+
+                // Determine config type and generate mappings
+                var isAtomConfig = configJson.TryGetProperty("mocks", out var mocksProperty) && mocksProperty.ValueKind == JsonValueKind.Array;
+                
+                List<WiremockMapping> mappings;
+
+                if (isAtomConfig)
+                {
+                    var atomConfig = JsonSerializer.Deserialize<ATOMConfig>(configJson.GetRawText(), options);
+                    if (atomConfig == null)
+                    {
+                        return BadRequest(new { success = false, message = "Failed to deserialize ATOM config" });
+                    }
+
+                    mappings = await _mappingService.GenerateMappingsFromATOMAsync(atomConfig);
+                }
+                else
+                {
+                    var legacyConfig = JsonSerializer.Deserialize<JsonConfig>(configJson.GetRawText(), options);
+                    if (legacyConfig == null)
+                    {
+                        return BadRequest(new { success = false, message = "Failed to deserialize legacy config" });
+                    }
+
+                    mappings = await _mappingService.GenerateMappingsAsync(legacyConfig);
+                }
+
+                Console.WriteLine($"Generated {mappings.Count} mappings");
+
+                return Ok(mappings);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Mapping generation exception: {ex.Message}");
+                Console.WriteLine($"Stack trace: {ex.StackTrace}");
+                
+                return StatusCode(500, new
+                {
+                    success = false,
+                    message = $"Failed to generate mappings: {ex.Message}",
+                    error = ex.Message
+                });
+            }
+        }
+
         [HttpPost("validate-and-deploy")]
         public async Task<IActionResult> ValidateAndDeployConfig([FromBody] JsonElement configJson)
         {

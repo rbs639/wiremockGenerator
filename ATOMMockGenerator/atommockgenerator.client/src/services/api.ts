@@ -72,8 +72,16 @@ export const configService = {
   },
 
   async generateMappings(config: JsonConfig | ATOMConfig): Promise<WiremockMapping[]> {
-    const response = await api.post<WiremockMapping[]>('/config/generate-mappings', config);
-    return response.data;
+    console.log('API service - generateMappings called with:', config);
+    
+    try {
+      const response = await api.post<WiremockMapping[]>('/config/generate-mappings', config);
+      console.log('API service - generate mappings response:', response.data);
+      return response.data;
+    } catch (error) {
+      console.error('API service - generate mappings failed:', error);
+      throw error;
+    }
   },
 
   async deployMappings(request: DeployMappingsRequest): Promise<ValidateAndDeployResponse> {
