@@ -28,11 +28,16 @@ namespace ATOMMockGenerator.Server.Services
         {
             var url = $"{wiremockBaseUrl.TrimEnd('/')}/__admin/mappings";
             
+            _logger.LogInformation("Creating mapping at URL: {Url} for {Method} {RequestUrl}", 
+                url, mapping.Request.Method, mapping.Request.Url ?? mapping.Request.UrlPattern);
+            
             var json = JsonSerializer.Serialize(mapping, new JsonSerializerOptions
             {
                 PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
                 DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
             });
+
+            _logger.LogDebug("Sending mapping JSON: {Json}", json);
 
             var content = new StringContent(json, Encoding.UTF8, "application/json");
             
@@ -41,8 +46,8 @@ namespace ATOMMockGenerator.Server.Services
                 Content = content
             };
 
-            // Add authentication if provided
-            AddAuthenticationHeader(request, auth);
+            // Add required headers (including auth if provided)
+            AddRequiredHeaders(request, auth);
 
             try
             {
@@ -57,6 +62,8 @@ namespace ATOMMockGenerator.Server.Services
                 }
 
                 var responseContent = await response.Content.ReadAsStringAsync();
+                _logger.LogDebug("Wiremock response: {Response}", responseContent);
+                
                 var createdMapping = JsonSerializer.Deserialize<WiremockMapping>(responseContent, new JsonSerializerOptions
                 {
                     PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
@@ -117,7 +124,7 @@ namespace ATOMMockGenerator.Server.Services
             var url = $"{wiremockBaseUrl.TrimEnd('/')}/__admin/mappings/{mappingId}";
             
             var request = new HttpRequestMessage(HttpMethod.Delete, url);
-            AddAuthenticationHeader(request, auth);
+            AddRequiredHeaders(request, auth);
 
             try
             {
@@ -146,7 +153,7 @@ namespace ATOMMockGenerator.Server.Services
             var url = $"{wiremockBaseUrl.TrimEnd('/')}/__admin/mappings";
             
             var request = new HttpRequestMessage(HttpMethod.Get, url);
-            AddAuthenticationHeader(request, auth);
+            AddRequiredHeaders(request, auth);
 
             try
             {
@@ -179,7 +186,7 @@ namespace ATOMMockGenerator.Server.Services
             var url = $"{wiremockBaseUrl.TrimEnd('/')}/__admin/mappings/reset";
             
             var request = new HttpRequestMessage(HttpMethod.Post, url);
-            AddAuthenticationHeader(request, auth);
+            AddRequiredHeaders(request, auth);
 
             try
             {
@@ -201,9 +208,17 @@ namespace ATOMMockGenerator.Server.Services
             }
         }
 
-        private void AddAuthenticationHeader(HttpRequestMessage request, AuthConfig? auth)
+        private void AddRequiredHeaders(HttpRequestMessage request, AuthConfig? auth)
         {
-            if (auth == null) return;
+            // Add the required WireMock forwarding header
+            request.Headers.Add("http-forward-to", "wiremock");
+            _logger.LogDebug("Added http-forward-to: wiremock header");
+            
+            if (auth == null) 
+            {
+                _logger.LogDebug("No authentication configured");
+                return;
+            }
 
             switch (auth.Type?.ToLower())
             {
@@ -212,13 +227,29 @@ namespace ATOMMockGenerator.Server.Services
                     {
                         var credentials = Convert.ToBase64String(Encoding.UTF8.GetBytes($"{auth.Username}:{auth.Password}"));
                         request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Basic", credentials);
+                        _logger.LogDebug("Added Basic authentication for user: {Username}", auth.Username);
+                    }
+                    else
+                    {
+                        _logger.LogWarning("Basic auth configured but username or password is missing");
                     }
                     break;
                 case "bearer":
                     if (!string.IsNullOrEmpty(auth.Token))
                     {
                         request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", auth.Token);
+                        _logger.LogDebug("Added Bearer authentication");
                     }
+                    else
+                    {
+                        _logger.LogWarning("Bearer auth configured but token is missing");
+                    }
+                    break;
+                case "none":
+                    _logger.LogDebug("Authentication type set to none");
+                    break;
+                default:
+                    _logger.LogWarning("Unknown authentication type: {AuthType}", auth.Type);
                     break;
             }
         }
